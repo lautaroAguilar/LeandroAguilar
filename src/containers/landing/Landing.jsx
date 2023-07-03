@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import image from "../../../../public/leandro1.png";
+import image from "../../../public/leandro1.png";
 import Button from "../../components/Button/Button";
 export default function landing() {
   return (
