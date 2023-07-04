@@ -5,7 +5,6 @@ import Button from "../../components/Button/Button";
 export default function landing() {
   return (
     <div className="landingContainer">
-      <div className="header"></div>
       <div className="imgContainer">
         <Image
           src={image}
