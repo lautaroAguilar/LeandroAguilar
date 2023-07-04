@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button/Button";
 import Image from "next/image";
-
+import img from "../../../public/autito.png"
 export default function Card() {
   return (
     <>

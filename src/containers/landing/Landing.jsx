@@ -4,7 +4,7 @@ import image from "../../../public/leandro1.png";
 import Button from "../../components/Button/Button";
 export default function landing() {
   return (
-    <div className="landingContainer">
+    <div id="landingContainer">
       <div className="imgContainer">
         <Image
           src={image}
