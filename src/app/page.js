@@ -7,7 +7,7 @@ import Review from '@/containers/review/Review'
 import Promo from "@/containers/promo/Promo"
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main className={styles.main} id='root'>
       <Landing/>
       <About/>
       <Promo/>

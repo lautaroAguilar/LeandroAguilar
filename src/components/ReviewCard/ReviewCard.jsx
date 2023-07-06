@@ -7,7 +7,7 @@ export default function ReviewCard() {
       <div className="Card">
         <div className="userInfo">
           <div className="imgContainer">
-            <Image />
+            
           </div>
           <h3>userName</h3>
         </div>
