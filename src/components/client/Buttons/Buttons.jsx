@@ -7,7 +7,7 @@ export default function Buttons() {
   return (
     <>
       <div className="buttons">
-        <Button text="Ir a promociones" />
+        <a href="#promo">Ir a promociones</a>
         <Button text="Dejar una reseña" onClick={handleOpenLoginModal} />
       </div>
     </>
