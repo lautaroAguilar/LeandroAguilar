@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function about() {
   return (
     <>
-      <div className="aboutContainer">
+      <div id="aboutContainer">
         <div className="texts">
           <h2>¿Quién soy?</h2>
           <div>

@@ -1,10 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import image from "../../../public/leandro1.png";
-import Button from "../../components/Button/Button";
+import Buttons from "@/components/client/Buttons/Buttons";
+import LoginModal from "../../components/client/LoginModal/LoginModal"
 export default function landing() {
+  
   return (
-    <div className="landingContainer">
+    <div id="landingContainer">
       <div className="imgContainer">
         <Image
           src={image}
@@ -22,10 +24,8 @@ export default function landing() {
           nobis debitis, iste corporis! Nihil, quos voluptatum!
         </p>
       </div>
-      <div className="buttons">
-        <Button text="Ir a promociones" />
-        <Button text="Dejar una reseña" />
-      </div>
+      <Buttons/>
+      <LoginModal/>
     </div>
   );
 }

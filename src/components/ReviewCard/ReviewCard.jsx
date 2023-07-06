@@ -1,10 +1,13 @@
+import Image from "next/image";
+
+
 export default function ReviewCard() {
   return (
     <>
       <div className="Card">
         <div className="userInfo">
           <div className="imgContainer">
-            <Image />
+            
           </div>
           <h3>userName</h3>
         </div>
