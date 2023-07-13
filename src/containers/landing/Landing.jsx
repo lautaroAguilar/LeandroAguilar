@@ -2,11 +2,12 @@ import React from "react";
 import Image from "next/image";
 import image from "../../../public/leandro1.png";
 import Buttons from "@/components/client/Buttons/Buttons";
-import LoginModal from "../../components/client/LoginModal/LoginModal"
+
 export default function landing() {
   
   return (
     <div id="landingContainer">
+     
       <div className="imgContainer">
         <Image
           src={image}
@@ -25,7 +26,6 @@ export default function landing() {
         </p>
       </div>
       <Buttons/>
-      <LoginModal/>
     </div>
   );
 }
