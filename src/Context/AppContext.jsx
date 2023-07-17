@@ -7,12 +7,11 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
   signInWithPopup,
-  signOut
-} from "firebase/auth";
-import {
+  signOut,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+
 const AppContext = createContext();
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -56,24 +55,9 @@ export const AppContextProvider = ({ children }) => {
     e.preventDefault();
     push(usersRefe, formData);
     console.log(formData);
+    createUser();
   };
-
-  const [isOpen, setIsOpen] = useState(false);
-  //LoginModal
-  const handleOpenLoginModal = () => {
-    setIsOpen(true);
-  };
-  const handleCloseLoginModal = () => {
-    setIsOpen(false);
-  };
-
-  //ReviewModal
-  const handleOpenReviewModal = () => {
-    setIsOpen(true);
-  };
-  const handleCloseReviewModal = () => {
-    setIsOpen(false);
-  };
+  //review
   const [review, setReview] = useState({
     reseña: "",
   });
@@ -93,37 +77,79 @@ export const AppContextProvider = ({ children }) => {
   };
 
   //Auth
+  const [user, setUser] = useState({});
+  const [errorMessage, setErrorMessage] = useState("");
+  const emailRegex =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
   const logInGoogle = () => {
-    signInWithPopup(auth, provider).then((data) => {
-      console.log(data)
-      const user = {
-        nombre: data.user.displayName,
-        email: data.user.email,
-        foto: data.user.photoURL,
-        verificado: data.user.emailVerified
-      }
-      console.log("resultado del inicio de sesion:", user);
+    signInWithPopup(auth, provider)
+      .then((data) => {
+        console.log(data);
+        setUser({
+          nombre: data.user.displayName,
+          email: data.user.email,
+          foto: data.user.photoURL,
+          verificado: data.user.emailVerified,
+        });
+        if (user) {
+          window.location.replace("/");
+        }
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
+  };
+
+  const logOut = () => {
+    signOut(auth).then((result) => {
+      console.log("cerró sesión", result);
     });
   };
-  
-  const logOut = ()=>{
-    signOut(auth).then((result)=>{
-      console.log("cerró sesión",result)
-    })
-  }
 
   const isLoggedIn = () => {
     onAuthStateChanged(auth, (user) => {
-      console.log("está logueado?",user);
-      if(user){
-        window.location.replace("/review")
-      }else{
-        window.location.replace("/login")
+      console.log("está logueado?", user);
+      if (user) {
+        window.location.replace("/review");
+      } else {
+        window.location.replace("/signUp");
       }
     });
   };
+  const createUser = () => {
+    createUserWithEmailAndPassword(auth, formData.email, formData.contraseña)
+      .then((userCredential) => {
+        console.log(userCredential);
 
-  
+        setUser({
+          nombre: formData.nombre,
+          email: userCredential.user.email,
+          contraseña: formData.contraseña
+        });
+        if (!emailRegex.test(formData.email)) {
+          setErrorMessage("Correo electrónico inválido");
+        } else {
+          window.location.replace("/signUp/signIn");
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setErrorMessage(error.message);
+      });
+  };
+  /* Avances: 
+      Ya crea el usuario con mail y contraseña, solucion a los modales y que no */
+  // Falta:
+  // Validar el inicio de sesion sea igual a la cuentra creada.
+  // Redirijir a donde corresponda
+  const signInWith = () => {
+    signInWithEmailAndPassword(auth, user.email, user.contraseña).then((result)=>{
+      console.log(user.email, user.contraseña)
+      console.log(result)
+    });
+  };
+
   return (
     <>
       <AppContext.Provider
@@ -131,22 +157,17 @@ export const AppContextProvider = ({ children }) => {
           formData,
           handleChange,
           submitUser,
+          user,
+          errorMessage,
 
           review,
           reviewChange,
           submitReview,
 
-          isOpen,
-          setIsOpen,
-          handleOpenLoginModal,
-          handleCloseLoginModal,
-
-          handleOpenReviewModal,
-          handleCloseReviewModal,
-
+          signInWith,
           logInGoogle,
           logOut,
-          isLoggedIn
+          isLoggedIn,
         }}
       >
         {children}
@@ -154,4 +175,5 @@ export const AppContextProvider = ({ children }) => {
     </>
   );
 };
+
 export const useAppContext = () => useContext(AppContext);

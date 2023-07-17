@@ -1,7 +1,7 @@
 import Button from "../Button/Button";
 import { useAppContext } from "@/context/AppContext";
 export default function Form() {
-  const { formData, handleChange, submitUser } = useAppContext();
+  const { formData, handleChange, submitUser, errorMessage } = useAppContext();
 
   return (
     <>
@@ -54,6 +54,7 @@ export default function Form() {
             onChange={handleChange}
           />
         </div>
+        <p>{errorMessage}</p>
         <Button type="submit" text="Crear cuenta" />
       </form>
     </>
