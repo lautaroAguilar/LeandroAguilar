@@ -1,13 +1,18 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import image from "../../../public/leandro1.png";
 import Buttons from "@/components/client/Buttons/Buttons";
 
+import { useAppContext } from "@/context/AppContext";
+
 export default function landing() {
-  
+  const { user } = useAppContext();
+  console.log(user);
   return (
     <div id="landingContainer">
-     
+      {user && <p>bienvenido {user.displayName} </p>}
+
       <div className="imgContainer">
         <Image
           src={image}
@@ -25,7 +30,7 @@ export default function landing() {
           nobis debitis, iste corporis! Nihil, quos voluptatum!
         </p>
       </div>
-      <Buttons/>
+      <Buttons />
     </div>
   );
 }

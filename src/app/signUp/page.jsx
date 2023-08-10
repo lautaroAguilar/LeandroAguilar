@@ -7,7 +7,7 @@ import { useAppContext } from "@/context/AppContext";
 export default function Login() {
   
   
-  const { logInGoogle,  } = useAppContext();
+  const { logInGoogle, logInFacebook } = useAppContext();
   
   return (
     <>
@@ -16,14 +16,13 @@ export default function Login() {
           <div className="texts">
             <h3>Primero necesitas identificarte</h3>
             <p>
-              Podés crearte una cuenta o iniciar sesión con tu cuenta de Google
+              Podés iniciar sesión con tu cuenta de Google.
             </p>
           </div>
           <Button text="Iniciar sesión con Google" onClick={logInGoogle} />
-          
-          <Form />
+          <Button text="Volver" href={"/"} />
         </div>
       
     </>
   );
-}
+} 

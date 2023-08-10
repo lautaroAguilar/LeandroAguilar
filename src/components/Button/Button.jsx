@@ -1,8 +1,22 @@
+"use client"
 import React from 'react'
-
-export default function Button({text, onClick, href}) {
+import "./Button.css"
+import Link from 'next/link'
+import style from "./Button.css"
+export default function Button({text, onClick , type,href}) {
   
     return (
-    <button className='btn' href={href} onClick={onClick}>{text}</button>
+      <>
+      {href ? (
+        <button className={style.btn} type={type} onClick={onClick}>
+          <Link href={href}>{text}</Link>
+        </button>
+      ) : (
+        <button type={type} onClick={onClick}>
+          {text}
+        </button>
+      )}
+    </>
   )
 }
+

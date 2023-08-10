@@ -2,9 +2,8 @@
 import ReviewCard from "@/components/ReviewCard/ReviewCard"
 import Button from "@/components/Button/Button"
 import { useAppContext } from "@/context/AppContext"
-import ReviewModal from "@/app/review/page"
 export default function Review() {
-  const {handleOpenLoginModal} = useAppContext
+  const {isLoggedIn} = useAppContext
   return (
     <>
         <div className="reviewContainer">
@@ -13,9 +12,8 @@ export default function Review() {
             </div>
             <div className="cardContainer">
                 <ReviewCard/>
-                <Button text="Dejar una reseña" onClick={handleOpenLoginModal}/>
+                <Button text="Dejar una reseña" onClick={isLoggedIn} />
             </div>
-            <ReviewModal/>
         </div>
     </>
   )

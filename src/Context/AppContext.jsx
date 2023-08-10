@@ -1,15 +1,20 @@
 "use client";
-import { createContext, useCallback, useContext, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, query, push } from "firebase/database";
 import {
   getAuth,
   onAuthStateChanged,
   GoogleAuthProvider,
+  FacebookAuthProvider,
   signInWithPopup,
   signOut,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
 } from "firebase/auth";
 
 const AppContext = createContext();
@@ -35,102 +40,41 @@ const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
 export const AppContextProvider = ({ children }) => {
-  //Form
-  const [formData, setFormData] = useState({
-    nombre: "",
-    apellido: "",
-    email: "",
-    contraseña: "",
-  });
-
-  const handleChange = useCallback((e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  }, []);
-
-  const submitUser = (e) => {
-    e.preventDefault();
-    push(usersRefe, formData);
-    console.log(formData);
-    createUser();
-  };
-  //review
+  //REVIEW
   const [review, setReview] = useState({
     reseña: "",
   });
 
   const reviewChange = useCallback((e) => {
-    const { name, value } = e.target;
-    setReview((prevReview) => ({
-      ...prevReview,
-      [name]: value,
-    }));
+    setReview(e.target.value);
   }, []);
 
   const submitReview = (e) => {
-    e.preventDefault();
-    push(reviewRefe, review);
-    console.log(review);
+    try {
+      e.preventDefault();
+      push(reviewRefe, review);
+      console.log(review);
+      if (review.reseña !== "") {
+        window.location.replace("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  //Auth
+  //AUTH
+
   const [user, setUser] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
-  const emailRegex =
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  const [message, setMessage] = useState("");
 
-  const logInGoogle = () => {
+  const logInGoogle = (e) => {
+    e.preventDefault();
     signInWithPopup(auth, provider)
       .then((data) => {
         console.log(data);
-        setUser({
-          nombre: data.user.displayName,
-          email: data.user.email,
-          foto: data.user.photoURL,
-          verificado: data.user.emailVerified,
-        });
-        if (user) {
+        if (data.user.displayName) {
           window.location.replace("/");
-        }
-      })
-      .catch((error) => {
-        setErrorMessage(error.message);
-      });
-  };
-
-  const logOut = () => {
-    signOut(auth).then((result) => {
-      console.log("cerró sesión", result);
-    });
-  };
-
-  const isLoggedIn = () => {
-    onAuthStateChanged(auth, (user) => {
-      console.log("está logueado?", user);
-      if (user) {
-        window.location.replace("/review");
-      } else {
-        window.location.replace("/signUp");
-      }
-    });
-  };
-  const createUser = () => {
-    createUserWithEmailAndPassword(auth, formData.email, formData.contraseña)
-      .then((userCredential) => {
-        console.log(userCredential);
-
-        setUser({
-          nombre: formData.nombre,
-          email: userCredential.user.email,
-          contraseña: formData.contraseña
-        });
-        if (!emailRegex.test(formData.email)) {
-          setErrorMessage("Correo electrónico inválido");
-        } else {
-          window.location.replace("/signUp/signIn");
         }
       })
       .catch((error) => {
@@ -138,36 +82,44 @@ export const AppContextProvider = ({ children }) => {
         setErrorMessage(error.message);
       });
   };
-  /* Avances: 
-      Ya crea el usuario con mail y contraseña, solucion a los modales y que no */
-  // Falta:
-  // Validar el inicio de sesion sea igual a la cuentra creada.
-  // Redirijir a donde corresponda
-  const signInWith = () => {
-    signInWithEmailAndPassword(auth, user.email, user.contraseña).then((result)=>{
-      console.log(user.email, user.contraseña)
-      console.log(result)
+  const logOut = (e) => {
+    e.preventDefault();
+    signOut(auth).then((result) => {
+      console.log("cerró sesión", result);
     });
+  };
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, []);
+  //REDIRECTS
+  const goToReview = () => {
+    try {
+      if (!user) {
+        setErrorMessage("Primero debe iniciar sesion")
+      } else {
+        window.location.replace("/review");
+      }
+    } catch (error) {}
   };
 
   return (
     <>
       <AppContext.Provider
         value={{
-          formData,
-          handleChange,
-          submitUser,
           user,
           errorMessage,
+          message,
 
           review,
           reviewChange,
           submitReview,
 
-          signInWith,
           logInGoogle,
           logOut,
-          isLoggedIn,
+
+          goToReview,
         }}
       >
         {children}
