@@ -1,24 +1,33 @@
+"use client"
+import { useAppContext } from "@/context/AppContext";
 import Image from "next/image";
+import { useEffect } from "react";
 
 
 export default function ReviewCard() {
+  const {getReviews, getReview, user} = useAppContext()
+  
+  useEffect(()=>{
+    getReviews()
+  },[])
   return (
     <>
+      {getReview.map((rev)=>(
+
       <div className="Card">
         <div className="userInfo">
           <div className="imgContainer">
             
           </div>
-          <h3>userName</h3>
+          <h3>{user.displayName}</h3>
         </div>
         <div className="userOpinion">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-            eos voluptatem officiis deleniti consequuntur quasi eum ea commodi!
-            Sapiente iure voluptates quidem, necessitatibus repudiandae beatae?
+            {rev}
           </p>
         </div>
       </div>
+      ))}
     </>
   );
 }

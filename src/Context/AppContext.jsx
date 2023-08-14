@@ -7,7 +7,7 @@ import {
   useState,
 } from "react";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, query, push } from "firebase/database";
+import { getDatabase, ref, query, push, onValue } from "firebase/database";
 import {
   getAuth,
   onAuthStateChanged,
@@ -33,7 +33,7 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
-const usersRefe = ref(db, "users/");
+const catalogueRefe = ref(db, "catalogue/");
 const reviewRefe = ref(db, "review/");
 //auth
 const auth = getAuth();
@@ -44,6 +44,7 @@ export const AppContextProvider = ({ children }) => {
   const [review, setReview] = useState({
     reseña: "",
   });
+  const [getReview, setGetReview] = useState([]);
 
   const reviewChange = useCallback((e) => {
     setReview(e.target.value);
@@ -62,6 +63,13 @@ export const AppContextProvider = ({ children }) => {
     }
   };
 
+  const getReviews = () => {
+    onValue(reviewRefe, (snap)=>{
+      let data = Object.values(snap.val());
+      setGetReview(data)
+      console.log(data)
+    })
+  }
   //AUTH
 
   const [user, setUser] = useState({});
@@ -97,13 +105,22 @@ export const AppContextProvider = ({ children }) => {
   const goToReview = () => {
     try {
       if (!user) {
-        setErrorMessage("Primero debe iniciar sesion")
+        setErrorMessage("Primero debe iniciar sesion");
       } else {
         window.location.replace("/review");
       }
     } catch (error) {}
   };
+  //PROMO
+  const [catalogue, setCatalogue] = useState([])
 
+  const getPromo = () => {
+    onValue(catalogueRefe, (snap)=>{
+      let data = snap.val();
+      setCatalogue(data);
+      console.log(data);
+    })
+  };
   return (
     <>
       <AppContext.Provider
@@ -120,6 +137,11 @@ export const AppContextProvider = ({ children }) => {
           logOut,
 
           goToReview,
+          getReviews,
+          getReview,
+
+          getPromo,
+          catalogue,
         }}
       >
         {children}
