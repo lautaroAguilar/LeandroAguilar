@@ -7,11 +7,11 @@ import Buttons from "@/components/client/Buttons/Buttons";
 import { useAppContext } from "@/context/AppContext";
 
 export default function landing() {
-  const { user } = useAppContext();
-  console.log(user);
+  const { currentUser } = useAppContext();
+
   return (
     <div id="landingContainer">
-      {user && <p>bienvenido {user.displayName} </p>}
+      {currentUser && <p>bienvenido {currentUser.displayName} </p>}
 
       <div className="imgContainer">
         <Image

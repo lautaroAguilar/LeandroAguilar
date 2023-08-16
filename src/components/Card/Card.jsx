@@ -12,8 +12,8 @@ export default function Card() {
 
   return (
     <>
-      {catalogue.map((cata) => (
-        <div className="Card" key={cata.key}>
+      {catalogue.map((cata, index) => (
+        <div className="Card" key={index}>
           <div className="content">
             <div className="imgContainer">
               <img

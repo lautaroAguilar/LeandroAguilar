@@ -5,25 +5,26 @@ import { useEffect } from "react";
 
 
 export default function ReviewCard() {
-  const {getReviews, getReview, user} = useAppContext()
+  const {getReviews, reviews} = useAppContext()
   
   useEffect(()=>{
     getReviews()
   },[])
   return (
     <>
-      {getReview.map((rev)=>(
+      {reviews.map((review, index)=>(
 
-      <div className="Card">
+      <div className="Card" key={index}>
         <div className="userInfo">
           <div className="imgContainer">
-            
+            <img src={review.photo} width={20} height={20}/>
           </div>
-          <h3>{user.displayName}</h3>
+          <h3>{review.userName}</h3>
+          <p>{review.email}</p>
         </div>
         <div className="userOpinion">
           <p>
-            {rev}
+            {review.review}
           </p>
         </div>
       </div>
