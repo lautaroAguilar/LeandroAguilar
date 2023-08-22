@@ -1,20 +1,20 @@
 "use client"
 import React from 'react'
-import "./Button.css"
 import Link from 'next/link'
-import style from "./Button.css"
-export default function Button({text, onClick , type,href}) {
+import {CustomButton, CustomLink} from "./button_styled";
+
+export default function Button({text, onClick , type, href,}) {
   
     return (
       <>
       {href ? (
-        <button className={style.btn} type={type} onClick={onClick}>
-          <Link href={href}>{text}</Link>
-        </button>
+        <CustomButton type={type} onClick={onClick}>
+          <CustomLink href={href}>{text}</CustomLink>
+        </CustomButton>
       ) : (
-        <button type={type} onClick={onClick}>
+        <CustomButton type={type} onClick={onClick}>
           {text}
-        </button>
+        </CustomButton>
       )}
     </>
   )
