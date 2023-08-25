@@ -1,10 +1,10 @@
 import React from "react";
 import Button from "../Button/Button";
-import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import { useEffect } from "react";
+import styles from "./Card.module.css";
 export default function Card() {
-  const { getPromo, catalogue,  } = useAppContext();
+  const { getPromo, catalogue } = useAppContext();
 
   useEffect(() => {
     getPromo();
@@ -13,22 +13,22 @@ export default function Card() {
   return (
     <>
       {catalogue.map((cata, index) => (
-        <div className="Card" key={index}>
-          <div className="content">
-            <div className="imgContainer">
+        <div className={styles.card} key={index}>
+          <div className={styles.content}>
+            <div className={styles.imgContainer}>
               <img
-                width={308}
-                height={197}
                 src={cata.img}
                 alt="Imagen ilustrativa del vehiculo"
               />
             </div>
-            <div className="title">
+            <div className={styles.texts}>
               <h3>{cata.title}</h3>
               <p>{cata.subtitle}</p>
             </div>
           </div>
-          <Button text="Ver más" />
+          <div className={styles.buttonContainer}>
+            <Button text="Ver más" />
+          </div>
         </div>
       ))}
     </>

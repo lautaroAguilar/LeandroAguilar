@@ -1,0 +1,21 @@
+.promoContainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.promoContainer h2{
+    margin-bottom: 2rem;
+    font-size: 36px;
+}
+.cardContainer{
+    height: 90%;
+    width: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 .5rem;
+    padding-top: 1rem;
+}

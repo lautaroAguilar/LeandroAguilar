@@ -13,17 +13,18 @@ export default function landing() {
   return (
     <div className={styles.container}>
       {currentUser && <p>bienvenido {currentUser.displayName} </p>}
-      <div className="imgContainer">
+      <div className={styles.imgContainer}>
         <Image
           src={image}
           width={315}
           height={486}
           alt="Foto de Leandro Aguilar"
+          className={styles.image}
         />
       </div>
-      <div className="texts">
-        <h1 className={fontTitle.className}>LEANDRO AGUILAR</h1>
-        <p>
+      <div className={styles.texts}>
+        <h1 className={fontTitle.className} id={styles.title}>LEANDRO AGUILAR</h1>
+        <p className={styles.p}>
           Incidunt adipisci odio delectus consequatur dolore explicabo aperiam
           nisi quas porro maxime laborum fuga voluptates distinctio est sapiente
           nobis debitis, iste corporis! Nihil, quos voluptatum!

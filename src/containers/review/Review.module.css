@@ -1,0 +1,28 @@
+.reviewContainer{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 4rem;
+}
+.reviewContainer h2{
+    font-size: 36px;
+}
+
+.cardContainer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    overflow-x: scroll;
+    padding: 1rem 0;
+    padding-left: .2rem;
+    scrollbar-color: #FF2727 transparent;
+}
+
+.buttonContainer{
+    width: 45%;
+}
