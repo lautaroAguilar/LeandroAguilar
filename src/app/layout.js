@@ -1,7 +1,7 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+
 import { AppContextProvider } from "../context/AppContext";
-const inter = Inter({ subsets: ["latin"] });
+import { font } from "./font";
 
 export const metadata = {
   title: "Leandro Aguilar",
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <AppContextProvider>
-        <body className={inter.className}>{children}</body>
+        <body className={font.className}>{children}</body>
       </AppContextProvider>
     </html>
   );

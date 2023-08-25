@@ -1,0 +1,35 @@
+.aboutContainer{
+    height: auto;
+    width: 100%;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.texts{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.texts h2{
+    font-size: 36px;
+}
+.texts p{
+    margin-bottom: 10px;
+}
+.paragraphs{
+    width: 100%;
+    height: auto;
+    margin: 2rem 0;
+}
+.illustration{
+    height: auto;
+    width: 100%;
+}
+.image{
+    height: auto;
+    width: 100%;
+}

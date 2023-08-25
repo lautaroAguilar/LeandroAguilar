@@ -5,15 +5,27 @@ import { useAppContext } from "@/context/AppContext";
 import { useEffect } from "react";
 
 export default function ReviewModal() {
-  const { review, reviewChange, submitReview, user } = useAppContext();
+  const { reseña, reviewChange, submitReview, currentUser, getReviews, reviews } =
+    useAppContext();
+  useEffect(() => {
+    getReviews();
+    reviewAlreadySend();
+  }, []);
+
+  const reviewAlreadySend = () => {
+  };
+
+  const send = reviews.some( review => review.email === currentUser.email);
+  console.log(send);
   
+
   return (
     <div className="reviewModal_Container">
       <div className="userInfo">
         <div className="imgContainer">
           <Image />
         </div>
-        <h3>Hola {user.displayName} ¿querés dejar tu reseña?</h3>
+        <p>Bienvenido {currentUser.displayName}, buenos dias</p>
         <p>Se mostrará públicamente</p>
       </div>
       <div className="starRatio"></div>
@@ -23,12 +35,13 @@ export default function ReviewModal() {
           required
           id="opinion"
           name="opinion"
-          value={review.reseña}
+          value={reseña}
           onChange={reviewChange}
         ></textarea>
+        {send && <p>Ya enviaste una reseña con esta cuenta</p>}
         <div className="buttons">
           <Button text="Cancelar" href="/" />
-          <Button type="submit" text="Publicar" onClick={submitReview}/>
+          {send ? <Button type="submit" text="no publicar" /> : <Button type="submit" text="Publicar" />}
         </div>
       </form>
     </div>

@@ -40,39 +40,9 @@ const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
 export const AppContextProvider = ({ children }) => {
-  //REVIEW
-  const [review, setReview] = useState({
-    reseña: "",
-  });
-  const [getReview, setGetReview] = useState([]);
-
-  const reviewChange = useCallback((e) => {
-    setReview(e.target.value);
-  }, []);
-
-  const submitReview = (e) => {
-    try {
-      e.preventDefault();
-      push(reviewRefe, review);
-      console.log(review);
-      if (review.reseña !== "") {
-        window.location.replace("/");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getReviews = () => {
-    onValue(reviewRefe, (snap)=>{
-      let data = Object.values(snap.val());
-      setGetReview(data)
-      console.log(data)
-    })
-  }
   //AUTH
 
-  const [user, setUser] = useState({});
+  const [currentUser, setCurrentUser] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [message, setMessage] = useState("");
 
@@ -98,13 +68,61 @@ export const AppContextProvider = ({ children }) => {
   };
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+      console.log(currentUser);
+      setCurrentUser(currentUser);
     });
   }, []);
+  //REVIEW
+  const [reseña, setReseña] = useState("");
+  const [userReview, setUserReview] = useState({
+    userName: "",
+    email: "",
+    photo: "",
+    review: "",
+  });
+  const [reviews, setReviews] = useState([]);
+  const reviewChange = useCallback((e) => {
+    setReseña(e.target.value);
+  }, []);
+  //actualiza el userReview si la reseña cambia (para tener datos de usuario y reseña juntos)
+  useEffect(() => {
+    setUserReview({
+      ...userReview,
+      userName: currentUser.displayName,
+      email: currentUser.email,
+      photo: currentUser.photoURL,
+      review: reseña,
+    });
+  }, [reseña]);
+  const submitReview = async (e) => {
+    try {
+      e.preventDefault();
+      sendToFirebase();
+      /*  if (review.reseña !== "") {
+        window.location.replace("/");
+      } */
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const sendToFirebase = () => {
+    if (userReview.review !== "") {
+      push(reviewRefe, userReview);
+      console.log("se envia", userReview);
+    }
+  };
+  const getReviews = () => {
+    onValue(reviewRefe, (snap) => {
+      let data = Object.values(snap.val());
+      setReviews(data);
+      console.log(data);
+    });
+  };
+  
   //REDIRECTS
   const goToReview = () => {
     try {
-      if (!user) {
+      if (!currentUser) {
         setErrorMessage("Primero debe iniciar sesion");
       } else {
         window.location.replace("/review");
@@ -112,24 +130,25 @@ export const AppContextProvider = ({ children }) => {
     } catch (error) {}
   };
   //PROMO
-  const [catalogue, setCatalogue] = useState([])
+  const [catalogue, setCatalogue] = useState([]);
 
   const getPromo = () => {
-    onValue(catalogueRefe, (snap)=>{
+    onValue(catalogueRefe, (snap) => {
       let data = snap.val();
       setCatalogue(data);
       console.log(data);
-    })
+    });
   };
   return (
     <>
       <AppContext.Provider
         value={{
-          user,
+          currentUser,
           errorMessage,
           message,
 
-          review,
+          reseña,
+          userReview,
           reviewChange,
           submitReview,
 
@@ -138,7 +157,8 @@ export const AppContextProvider = ({ children }) => {
 
           goToReview,
           getReviews,
-          getReview,
+          reviews,
+          
 
           getPromo,
           catalogue,
