@@ -4,37 +4,34 @@ import Link from "next/link";
 import { useAppContext } from "@/context/AppContext";
 import styles from "./Buttons.module.css";
 import { font } from "@/app/font";
+import { useEffect } from "react";
 export default function Buttons() {
-  const { goToReview, logOut, currentUser, errorMessage } = useAppContext();
+  const { goToReview, logOut, currentUser, reviewAlreadySend,
+    send} = useAppContext();
+
+  useEffect(()=>{
+    reviewAlreadySend()
+  },[send])
+  
 
   return (
     <>
       <div className={styles.container}>
         <Link className={styles.btnSecondary} href="#promo">Ir a promociones</Link>
-        {currentUser ? (
+        {currentUser && !send ? (
           <Button
-            className={font.className}
+            
             text="Dejar una reseña"
             onClick={goToReview}
           />
         ) : (
           ""
         )}
-        <p>{errorMessage}</p>
         {!currentUser ? (
           <Button
-            className={font.className}
+            
             text="Dejar una reseña"
             href={"/signUp"}
-          />
-        ) : (
-          ""
-        )}
-        {currentUser ? (
-          <Button
-            className={font.className}
-            text="cerrar sesión con Google"
-            onClick={logOut}
           />
         ) : (
           ""

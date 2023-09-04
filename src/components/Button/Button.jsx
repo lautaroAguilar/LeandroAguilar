@@ -3,16 +3,16 @@ import React from 'react'
 import Link from 'next/link'
 import {CustomButton, CustomLink} from "./button_styled";
 
-export default function Button({text, onClick , type, href, className}) {
+export default function Button({text, onClick , type, href, icon}) {
   
     return (
       <>
       {href ? (
-        <CustomButton className={className} type={type} onClick={onClick}>
-          <CustomLink href={href}>{text}</CustomLink>
+        <CustomButton type={type} onClick={onClick}>
+          <CustomLink href={href}>{text} {icon}</CustomLink>
         </CustomButton>
       ) : (
-        <CustomButton className={className} type={type} onClick={onClick}>
+        <CustomButton  type={type} onClick={onClick}>
           {text}
         </CustomButton>
       )}

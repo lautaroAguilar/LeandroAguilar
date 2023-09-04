@@ -13,9 +13,12 @@ export const CustomButton = styled.button`
   cursor: pointer;
   color: white;
   background-color: #ff2727;
-`
+  font-family: var(--font-bebas);
+  font-size: 16px;
+`;
 
 export const CustomLink = styled(Link)`
+  width: 100%;
   text-decoration: none;
   color: white;
-`
+`;

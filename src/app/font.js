@@ -7,5 +7,6 @@ export const font = Montserrat({
 
 export const fontTitle = Bebas_Neue({
     weight:["400"],
-    subsets:["latin"]
+    subsets:["latin"],
+    variable: ["--font-bebas"]
 })

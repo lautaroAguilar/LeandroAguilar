@@ -3,13 +3,14 @@ import Button from "../Button/Button";
 import { useAppContext } from "@/context/AppContext";
 import { useEffect } from "react";
 import styles from "./Card.module.css";
+import {BsWhatsapp} from "react-icons/bs"
 export default function Card() {
   const { getPromo, catalogue } = useAppContext();
 
   useEffect(() => {
     getPromo();
   }, []);
-
+  const contactar = "contactar"
   return (
     <>
       {catalogue.map((cata, index) => (
@@ -27,7 +28,7 @@ export default function Card() {
             </div>
           </div>
           <div className={styles.buttonContainer}>
-            <Button text="Ver más" />
+            <Button href={"https://api.whatsapp.com/send?phone=5491123231563"}  icon={<BsWhatsapp/>} text={contactar}/>
           </div>
         </div>
       ))}

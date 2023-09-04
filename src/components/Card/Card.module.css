@@ -21,7 +21,6 @@
 .imgContainer {
   width: 100%;
   height: 300px;
-  margin-bottom: 20px;
 }
 
 .imgContainer img {
@@ -42,5 +41,17 @@
   font-size: 24px;
 }
 .buttonContainer {
-  width: 40%;
+  width: 50%;
+}
+.buttonContainer Button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25d366;
+}
+.buttonContainer Button a {
+  color: black;
+}
+.buttonContainer Button svg {
+  color: black;
 }
