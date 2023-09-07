@@ -37,7 +37,7 @@
 }
 .texts {
   height: auto;
-  width: 330px;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

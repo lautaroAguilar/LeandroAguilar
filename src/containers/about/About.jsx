@@ -10,23 +10,23 @@ export default function about() {
           <h2 className={fontTitle.className}>¿Por qué elegirnos?</h2>
           <div className={styles.paragraphs}>
             <p>
-              ¿No estas cansado de que siempre te lleguen promociones y nunca
-              cumplan? ¿Que cada vez se te haga mas difícil, elegir entre un buen
+              ¿No estás cansado de que siempre te lleguen promociones y nunca
+              cumplan? ¿Que cada vez se te haga más difícil elegir entre un buen
               asesoramiento o una estafa?
             </p>
             <p>
-              Si seguís buscando ese tipo de “ofertas” vas a tener los mismos
-              resultados. Fiat Giama es la empresa NUMERO 1 en PATENTAMIENTO a
+              Si sigues buscando ese tipo de "ofertas", vas a tener los mismos
+              resultados. Fiat Giama es la empresa NÚMERO 1 en PATENTAMIENTO a
               nivel país, contamos con las mejores condiciones de compra por ser
-              la agencia First Class con mayor cantidad de autos entregados.
+              la agencia First Class con la mayor cantidad de autos entregados.
             </p>
           </div>
         </div>
         <div className={styles.illustration}>
           <Image
             src={illustration}
-            width={348}
-            height={209}
+            width={2800}
+            height={500}
             alt="Ilustración de un vendedor"
             className={styles.image}
           />

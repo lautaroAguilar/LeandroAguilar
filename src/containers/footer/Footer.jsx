@@ -28,8 +28,8 @@ export default function Footer() {
         <Image
           src={cronistas}
           alt="auto cronos"
-          width={500}
-          height={100}
+          width={2000}
+          height={500}
           className={styles.cronistas}
         />
         <div className={styles.title}>
@@ -64,7 +64,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className={styles.copy}>
-          <p>Copyright © 2023 Lautaro Aguilar</p>
+          <p>Lautaro Aguilar © 2023</p>
         </div>
       </div>
     </>

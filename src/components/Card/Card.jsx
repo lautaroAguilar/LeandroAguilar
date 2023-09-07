@@ -6,7 +6,6 @@ import styles from "./Card.module.css";
 import {BsWhatsapp} from "react-icons/bs"
 export default function Card() {
   const { getPromo, catalogue } = useAppContext();
-
   useEffect(() => {
     getPromo();
   }, []);
@@ -28,7 +27,10 @@ export default function Card() {
             </div>
           </div>
           <div className={styles.buttonContainer}>
-            <Button href={"https://api.whatsapp.com/send?phone=5491123231563"}  icon={<BsWhatsapp/>} text={contactar}/>
+            <Button href={"https://api.whatsapp.com/send?phone=5491123231563"}  icon={<BsWhatsapp/>}text={contactar}/>
+            <div className={styles.containerPrice}>
+              <p>${cata.price}</p>
+            </div>
           </div>
         </div>
       ))}
