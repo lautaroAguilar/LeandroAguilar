@@ -1,7 +1,7 @@
 "use client";
 import Button from "@/components/Button/Button";
 import Link from "next/link";
-import { useAppContext } from "@/context/AppContext";
+import { useAppContext } from "../../context/AppContext";
 import styles from "./Buttons.module.css";
 import { font } from "@/app/font";
 import { useEffect } from "react";

@@ -1,5 +1,5 @@
 "use client";
-import { useAppContext } from "@/context/AppContext";
+import { useAppContext } from "../../context/AppContext";
 import Image from "next/image";
 import { useEffect } from "react";
 import styles from "./ReviewCard.module.css";

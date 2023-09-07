@@ -5,7 +5,7 @@ import image from "../../../public/leandro1.png";
 import Buttons from "@/components/client/Buttons/Buttons";
 import { fontTitle } from "../../app/font";
 import styles from "./Landing.module.css";
-import { useAppContext } from "@/context/AppContext";
+import { useAppContext } from "../../context/AppContext";
 import fiatGiama from "../../../public/fiatGiama.png";
 export default function landing() {
   const { currentUser } = useAppContext();

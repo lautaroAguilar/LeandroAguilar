@@ -50,25 +50,21 @@ export const AppContextProvider = ({ children }) => {
     e.preventDefault();
     signInWithPopup(auth, provider)
       .then((data) => {
-        console.log(data);
         if (data.user.displayName) {
           window.location.replace("/");
         }
       })
       .catch((error) => {
-        console.log(error.message);
         setErrorMessage(error.message);
       });
   };
   const logOut = (e) => {
     e.preventDefault();
     signOut(auth).then((result) => {
-      console.log("cerró sesión", result);
     });
   };
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
       setCurrentUser(currentUser);
     });
   }, []);
@@ -108,20 +104,17 @@ export const AppContextProvider = ({ children }) => {
   const sendToFirebase = () => {
     if (userReview.review !== "") {
       push(reviewRefe, userReview);
-      console.log("se envia", userReview);
     }
   };
   const getReviews = () => {
     onValue(reviewRefe, (snap) => {
       let data = Object.values(snap.val());
       setReviews(data);
-      console.log(data);
     });
   };
   const [send, setSend] = useState("");
   const reviewAlreadySend = () => {
     setSend(reviews.some((review) => review.email === currentUser.email));
-    console.log(send);
   };
   //REDIRECTS
   const goToReview = () => {
@@ -141,7 +134,6 @@ export const AppContextProvider = ({ children }) => {
     onValue(catalogueRefe, (snap) => {
       let data = snap.val();
       setCatalogue(data);
-      console.log(data);
     });
   };
   return (

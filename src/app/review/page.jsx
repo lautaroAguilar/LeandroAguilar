@@ -1,7 +1,6 @@
 "use client";
-import Image from "next/image";
 import Button from "../../components/Button/Button";
-import { useAppContext } from "@/context/AppContext";
+import { useAppContext } from "../../context/AppContext";
 import { useEffect } from "react";
 import styles from "./review.module.css";
 export default function ReviewModal() {
