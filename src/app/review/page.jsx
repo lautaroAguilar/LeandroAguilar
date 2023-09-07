@@ -3,47 +3,55 @@ import Image from "next/image";
 import Button from "../../components/Button/Button";
 import { useAppContext } from "@/context/AppContext";
 import { useEffect } from "react";
-
+import styles from "./review.module.css";
 export default function ReviewModal() {
-  const { reseña, reviewChange, submitReview, currentUser, getReviews, reviews } =
-    useAppContext();
+  const {
+    reseña,
+    reviewChange,
+    submitReview,
+    currentUser,
+    getReviews,
+    reviews,
+  } = useAppContext();
   useEffect(() => {
     getReviews();
-    reviewAlreadySend();
   }, []);
 
-  const reviewAlreadySend = () => {
-  };
-
-  const send = reviews.some( review => review.email === currentUser.email);
-  console.log(send);
-  
+  const send = reviews.some((review) => review.email === currentUser.email);
 
   return (
-    <div className="reviewModal_Container">
-      <div className="userInfo">
-        <div className="imgContainer">
-          <Image />
+    <div className={styles.container}>
+      <div className={styles.reviewContainer}>
+        <div className={styles.userInfo}>
+          <div className={styles.imgContainer}>
+            <img src={currentUser.photoURL} width={40} height={40} />
+          </div>
+          <div className={styles.texts}>
+            <h3>{currentUser.displayName}</h3>
+            <p>Se mostrará públicamente</p>
+          </div>
         </div>
-        <p>Bienvenido {currentUser.displayName}, buenos dias</p>
-        <p>Se mostrará públicamente</p>
+        {/* <div className="starRatio"></div> */}
+        <form onSubmit={submitReview} className={styles.sendReview}>
+          <label htmlFor="opinion">Dejá tu opinión:</label>
+          <textarea
+            required
+            id="opinion"
+            name="opinion"
+            value={reseña}
+            onChange={reviewChange}
+          ></textarea>
+          <div className={styles.buttons}>
+            <Button text="Cancelar" href="/" />
+            {send && <p>Ya enviaste una reseña con esta cuenta</p>}
+            {send ? (
+              <Button text="No puedes enviar mas de una" />
+            ) : (
+              <Button type="submit" text="Publicar" />
+            )}
+          </div>
+        </form>
       </div>
-      <div className="starRatio"></div>
-      <form onSubmit={submitReview}>
-        <label htmlFor="opinion">Deja tu opinión:</label>
-        <textarea
-          required
-          id="opinion"
-          name="opinion"
-          value={reseña}
-          onChange={reviewChange}
-        ></textarea>
-        {send && <p>Ya enviaste una reseña con esta cuenta</p>}
-        <div className="buttons">
-          <Button text="Cancelar" href="/" />
-          {send ? <Button type="submit" text="no publicar" /> : <Button type="submit" text="Publicar" />}
-        </div>
-      </form>
     </div>
   );
 }

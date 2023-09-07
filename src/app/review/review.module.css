@@ -1,0 +1,82 @@
+.container{
+    height: 100vh;
+    width: 100%;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.reviewContainer{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: 2px 4px 14px 0px rgba(0, 0, 0, 0.35);
+}
+.userInfo{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.imgContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+.imgContainer img{
+    border-radius: 20px;
+}
+.texts{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.texts p{
+    font-size: 14px;
+    color: #4A4A4A;
+}
+.sendReview{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.sendReview label{
+    align-self: self-start;
+}
+.sendReview textarea{
+    height: 100px;
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid #c4c4c4;
+    margin: 10px 0;
+    padding: 10px;
+}
+.sendReview textarea:focus{
+    border: 2px solid #FF2727;
+}
+.buttons{
+    width: 100%;
+}
+.buttons Button:last-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff9898;
+    color: #fafafa;
+    cursor: not-allowed;
+}
+.buttons p{
+    color: #830707;
+    font-size: 14px;
+    margin: 5px 0;
+}

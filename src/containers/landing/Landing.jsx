@@ -3,16 +3,23 @@ import React from "react";
 import Image from "next/image";
 import image from "../../../public/leandro1.png";
 import Buttons from "@/components/client/Buttons/Buttons";
-import {fontTitle} from "../../app/font"
-import styles from "./Landing.module.css"
+import { fontTitle } from "../../app/font";
+import styles from "./Landing.module.css";
 import { useAppContext } from "@/context/AppContext";
-
+import fiatGiama from "../../../public/fiatGiama.png";
 export default function landing() {
   const { currentUser } = useAppContext();
 
   return (
     <div className={styles.container}>
-      {currentUser && <p>bienvenido {currentUser.displayName} </p>}
+      <Image
+        src={fiatGiama}
+        width={700}
+        height={100}
+        alt="logo de Fiat Giama"
+        className={styles.giama}
+      />
+      {/* {currentUser && <p>bienvenido {currentUser.displayName} </p>} */}
       <div className={styles.imgContainer}>
         <Image
           src={image}
@@ -23,11 +30,15 @@ export default function landing() {
         />
       </div>
       <div className={styles.texts}>
-        <h1 className={fontTitle.className} id={styles.title}>LEANDRO AGUILAR</h1>
+        <h1 className={fontTitle.className} id={styles.title}>
+          LEANDRO AGUILAR
+        </h1>
+        <p className={styles.p}>Asesor Comercial Senior.</p>
+      </div>
+      <div className={styles.texts}>
         <p className={styles.p}>
-          Incidunt adipisci odio delectus consequatur dolore explicabo aperiam
-          nisi quas porro maxime laborum fuga voluptates distinctio est sapiente
-          nobis debitis, iste corporis! Nihil, quos voluptatum!
+          Hace mas de 10 años asesorando con el mismo ánimo y entusiasmo a
+          familias o empresas.
         </p>
       </div>
       <Buttons />

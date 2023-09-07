@@ -118,12 +118,17 @@ export const AppContextProvider = ({ children }) => {
       console.log(data);
     });
   };
-  
+  const [send, setSend] = useState("");
+  const reviewAlreadySend = () => {
+    setSend(reviews.some((review) => review.email === currentUser.email));
+    console.log(send);
+  };
   //REDIRECTS
   const goToReview = () => {
     try {
       if (!currentUser) {
         setErrorMessage("Primero debe iniciar sesion");
+        window.location.replace("/signUp");
       } else {
         window.location.replace("/review");
       }
@@ -151,6 +156,8 @@ export const AppContextProvider = ({ children }) => {
           userReview,
           reviewChange,
           submitReview,
+          reviewAlreadySend,
+          send,
 
           logInGoogle,
           logOut,
@@ -158,7 +165,6 @@ export const AppContextProvider = ({ children }) => {
           goToReview,
           getReviews,
           reviews,
-          
 
           getPromo,
           catalogue,

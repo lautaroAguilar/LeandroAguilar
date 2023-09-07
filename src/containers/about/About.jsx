@@ -1,33 +1,32 @@
 import { fontTitle } from "@/app/font";
-import illustration from "../../../public/undraw1.png";
-import styles from "./About.module.css"
+import illustration from "../../../public/300mil.jpg";
+import styles from "./About.module.css";
 import Image from "next/image";
 export default function about() {
   return (
     <>
-      <div className={styles.aboutContainer}>
+      <div id="about" className={styles.aboutContainer}>
         <div className={styles.texts}>
-          <h2 className={fontTitle.className}>¿Quién soy?</h2>
+          <h2 className={fontTitle.className}>¿Por qué elegirnos?</h2>
           <div className={styles.paragraphs}>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Exercitationem, doloremque consectetur. Atque sint, earum sed eius
-              nam doloribus autem error reprehenderit accusantium molestias illo
-              obcaecati fuga voluptatibus explicabo excepturi eum.
+              ¿No estás cansado de que siempre te lleguen promociones y nunca
+              cumplan? ¿Que cada vez se te haga más difícil elegir entre un buen
+              asesoramiento o una estafa?
             </p>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Exercitationem, doloremque consectetur. Atque sint, earum sed eius
-              nam doloribus autem error reprehenderit accusantium molestias illo
-              obcaecati fuga voluptatibus explicabo excepturi eum.
+              Si sigues buscando ese tipo de "ofertas", vas a tener los mismos
+              resultados. Fiat Giama es la empresa NÚMERO 1 en PATENTAMIENTO a
+              nivel país, contamos con las mejores condiciones de compra por ser
+              la agencia First Class con la mayor cantidad de autos entregados.
             </p>
           </div>
         </div>
         <div className={styles.illustration}>
           <Image
             src={illustration}
-            width={348}
-            height={209}
+            width={2800}
+            height={500}
             alt="Ilustración de un vendedor"
             className={styles.image}
           />
