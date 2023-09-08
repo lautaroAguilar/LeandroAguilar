@@ -1,7 +1,6 @@
 "use client";
 import ReviewCard from "@/components/ReviewCard/ReviewCard";
-import Button from "@/components/Button/Button";
-import { useAppContext } from "@/context/AppContext";
+import { useAppContext } from "../../context/AppContext.jsx";
 import { fontTitle } from "@/app/font";
 import styles from "./Review.module.css";
 export default function Review() {

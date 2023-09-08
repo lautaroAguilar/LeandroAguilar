@@ -2,7 +2,7 @@
 import Button from "../../components/Button/Button";
 import styles from "./signUp.module.css";
 import { FcGoogle } from "react-icons/fc" 
-import { useAppContext } from "@/context/AppContext";
+import { useAppContext } from "../../context/AppContext.jsx";
 export default function Login() {
   const { logInGoogle } = useAppContext();
 

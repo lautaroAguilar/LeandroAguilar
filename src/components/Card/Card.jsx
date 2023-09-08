@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button/Button";
-import { useAppContext } from "@/context/AppContext";
+import { useAppContext } from "../../context/AppContext.jsx";
 import { useEffect } from "react";
 import styles from "./Card.module.css";
 import {BsWhatsapp} from "react-icons/bs"
