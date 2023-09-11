@@ -25,7 +25,11 @@
 @media (min-width: 701px) and (max-width: 1120px) {
   
 }
-
+@media (min-width: 1024px) {
+  .main{
+    padding: 0 4rem;
+  } 
+}
 @media (prefers-color-scheme: dark) {
   
 }
