@@ -38,3 +38,12 @@
     height: auto;
     width: 100%;
 }
+@media (min-width: 1024px) {
+    .texts{
+        flex-direction: row;
+    }
+    .paragraphs{
+        max-width: 400px;
+        height: 35vh;
+    }
+}
