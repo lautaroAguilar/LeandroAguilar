@@ -12,13 +12,15 @@ export default function landing() {
 
   return (
     <div className={styles.container}>
-      <Image
-        src={fiatGiama}
-        width={700}
-        height={100}
-        alt="logo de Fiat Giama"
-        className={styles.giama}
-      />
+      <div className={styles.headerContainer}>
+        <Image
+          src={fiatGiama}
+          width={700}
+          height={75}
+          alt="logo de Fiat Giama"
+          className={styles.giama}
+        />
+      </div>
       {/* {currentUser && <p>bienvenido {currentUser.displayName} </p>} */}
       <div className={styles.imgContainer}>
         <Image
@@ -29,17 +31,19 @@ export default function landing() {
           className={styles.image}
         />
       </div>
-      <div className={styles.texts}>
-        <h1 className={fontTitle.className} id={styles.title}>
-          LEANDRO AGUILAR
-        </h1>
-        <p className={styles.p}>Asesor Comercial Senior.</p>
-      </div>
-      <div className={styles.texts}>
-        <p className={styles.p}>
-          Hace mas de 10 años asesorando con el mismo ánimo y entusiasmo a
-          familias o empresas.
-        </p>
+      <div className={styles.containerTexts}>
+        <div className={styles.texts}>
+          <h1 className={fontTitle.className} id={styles.title}>
+            LEANDRO AGUILAR
+          </h1>
+          <p className={styles.p}>Asesor Comercial Senior.</p>
+        </div>
+        <div className={styles.texts}>
+          <p className={styles.p}>
+            Hace mas de 10 años asesorando con el mismo ánimo y entusiasmo a
+            familias o empresas.
+          </p>
+        </div>
       </div>
       <Buttons />
     </div>

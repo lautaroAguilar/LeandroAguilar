@@ -26,3 +26,8 @@
 .buttonContainer{
     width: 45%;
 }
+@media (min-width: 1024px) {
+    .reviewContainer{
+        height: 70vh;
+    }
+}
