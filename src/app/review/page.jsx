@@ -17,7 +17,6 @@ export default function ReviewModal() {
   }, []);
 
   const send = reviews.some((review) => review.email === currentUser.email);
-
   return (
     <div className={styles.container}>
       <div className={styles.reviewContainer}>
@@ -43,11 +42,8 @@ export default function ReviewModal() {
           <div className={styles.buttons}>
             <Button text="Cancelar" href="/" />
             {send && <p>Ya enviaste una reseña con esta cuenta</p>}
-            {send ? (
-              <Button text="No puedes enviar mas de una" />
-            ) : (
-              <Button type="submit" text="Publicar" />
-            )}
+            {send && <p>No puedes enviar mas de una.</p>}
+            {!send && <Button type="submit" text="Publicar" />}
           </div>
         </form>
       </div>

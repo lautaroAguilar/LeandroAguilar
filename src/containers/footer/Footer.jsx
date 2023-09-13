@@ -17,7 +17,7 @@ export default function Footer() {
           <h3 className={fontTitle.className}>Sobre mí</h3>
           <div className={styles.containerParagraph}>
             <p>
-              Hace mas de 10 años asesorando con el mismo ánimo y entusiasmo a
+              Hace mas de 10 años asesoro con el mismo ánimo y entusiasmo a
               familias o empresas.
             </p>
             <p>

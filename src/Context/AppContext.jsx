@@ -94,9 +94,9 @@ export const AppContextProvider = ({ children }) => {
     try {
       e.preventDefault();
       sendToFirebase();
-      /*  if (review.reseña !== "") {
+       if (reseña !== "") {
         window.location.replace("/");
-      } */
+      }
     } catch (error) {
       console.log(error);
     }
@@ -109,7 +109,7 @@ export const AppContextProvider = ({ children }) => {
   const getReviews = () => {
     onValue(reviewRefe, (snap) => {
       let data = Object.values(snap.val());
-      setReviews(data);
+      setReviews(data.reverse());
     });
   };
   const [send, setSend] = useState("");
