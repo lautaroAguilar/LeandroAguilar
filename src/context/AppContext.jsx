@@ -51,7 +51,7 @@ export const AppContextProvider = ({ children }) => {
     signInWithPopup(auth, provider)
       .then((data) => {
         if (data.user.displayName) {
-          window.location.replace("/");
+          window.location.replace("/review");
         }
       })
       .catch((error) => {
