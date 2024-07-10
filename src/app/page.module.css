@@ -6,34 +6,34 @@
   padding: 0 1rem;
   min-height: 100vh;
 }
-
+.background {
+  height: 100%;
+  width: auto;
+  position: absolute;
+  z-index: 5;
+  filter: brightness(35%);
+}
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
-  
 }
 
 @media (prefers-reduced-motion) {
-  
 }
 
 /* Mobile */
 @media (max-width: 700px) {
-  
 }
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
-  
 }
 @media (min-width: 1024px) {
-  .main{
+  .main {
     padding: 0 4rem;
-  } 
+  }
 }
 @media (prefers-color-scheme: dark) {
-  
 }
 
 @keyframes rotate {
-  
 }
