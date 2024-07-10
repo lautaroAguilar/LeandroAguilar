@@ -6,33 +6,24 @@ import styles from "./Buttons.module.css";
 import { font } from "@/app/font";
 import { useEffect } from "react";
 export default function Buttons() {
-  const { goToReview, logOut, currentUser, reviewAlreadySend,
-    send} = useAppContext();
+  const { goToReview, logOut, currentUser, reviewAlreadySend, send } =
+    useAppContext();
 
-  useEffect(()=>{
-    reviewAlreadySend()
-  },[send])
-  
+  useEffect(() => {
+    reviewAlreadySend();
+  }, [send]);
 
   return (
     <>
       <div className={styles.container}>
-        <Link className={styles.btnSecondary} href="#promo">Ir a promociones</Link>
+        <Button secondary href={"#promo"} text={"Ir a promociones"} />
         {currentUser && !send ? (
-          <Button
-            
-            text="Dejar una reseña"
-            onClick={goToReview}
-          />
+          <Button text="Dejar una reseña" onClick={goToReview} />
         ) : (
           ""
         )}
         {!currentUser ? (
-          <Button
-            
-            text="Dejar una reseña"
-            href={"/signUp"}
-          />
+          <Button text="Dejar una reseña" href={"/signUp"} />
         ) : (
           ""
         )}
