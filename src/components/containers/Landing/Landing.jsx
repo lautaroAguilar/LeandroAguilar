@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import image from "../../../public/leandro1.png";
+import image from "../../../../public/leandro1.png";
 import Buttons from "@/components/client/Buttons/Buttons";
-import { fontTitle } from "../../app/font";
+import { fontTitle } from "../../../app/font";
 import styles from "./Landing.module.css";
-import { useAppContext } from "../../context/AppContext.jsx";
+import { useAppContext } from "../../../context/AppContext.jsx";
 export default function landing() {
   const { currentUser } = useAppContext();
 

@@ -10,27 +10,51 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container_logo}>
-        <Image
-          src={fiatGiama}
-          alt="logo de Fiat Giama"
-          className={styles.giama}
-        />
+        <Link href={"/"} style={{ height: "100%", width: "auto" }}>
+          <Image
+            src={fiatGiama}
+            alt="logo de Fiat Giama"
+            className={styles.giama}
+          />
+        </Link>
         <div className={styles.divider}></div>
-        <h1 className={`${styles.title} ${fontTitle.className}`}>Leandro Aguilar</h1>
+        <h1 className={`${styles.title} ${fontTitle.className}`}>
+          Leandro Aguilar
+        </h1>
       </div>
       <nav className={styles.nav}>
         <ul>
           <li>
-            <Link href={"#"} className={`${styles.nav_options} ${fontTitle.className}`}>Quienes Somos</Link>
+            <Link
+              href={"/quienes-somos"}
+              className={`${styles.nav_options} ${fontTitle.className}`}
+            >
+              Quienes Somos
+            </Link>
           </li>
           <li>
-            <Link href={"#"} className={`${styles.nav_options} ${fontTitle.className}`}>Cotizar</Link>
+            <Link
+              href={"#"}
+              className={`${styles.nav_options} ${fontTitle.className}`}
+            >
+              Cotizar
+            </Link>
           </li>
           <li>
-            <Link href={"#"} className={`${styles.nav_options} ${fontTitle.className}`}>Contactar Asesor</Link>
+            <Link
+              href={"#"}
+              className={`${styles.nav_options} ${fontTitle.className}`}
+            >
+              Contactar Asesor
+            </Link>
           </li>
           <li>
-            <Link href={"#"} className={`${styles.nav_options} ${fontTitle.className}`}>Catálogo</Link>
+            <Link
+              href={"/catalogo"}
+              className={`${styles.nav_options} ${fontTitle.className}`}
+            >
+              Catálogo
+            </Link>
           </li>
         </ul>
       </nav>

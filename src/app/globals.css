@@ -22,7 +22,7 @@ a {
 }
 
 button:hover {
-  filter: brightness(95%);
+  filter: brightness(90%);
   transform: translateY(-1px);
   transition: .2s ease;
 }

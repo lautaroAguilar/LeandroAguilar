@@ -1,8 +1,8 @@
 import { fontTitle } from "@/app/font";
 import illustration from "../../../public/300mil.jpg";
-import styles from "./About.module.css";
+import styles from "./quienesSomos.module.css";
 import Image from "next/image";
-export default function about() {
+export default function quienesSomos() {
   return (
     <>
       <div id="about" className={styles.aboutContainer}>

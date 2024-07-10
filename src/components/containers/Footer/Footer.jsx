@@ -4,8 +4,8 @@ import styles from "./Footer.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { fontTitle } from "@/app/font";
-import { useAppContext } from "../../context/AppContext.jsx";
-import cronistas from "../../../public/cronistas.jpg";
+import { useAppContext } from "../../../context/AppContext.jsx";
+import cronistas from "../../../../public/cronistas.jpg";
 import { HiOutlineMail, HiOutlinePhoneIncoming } from "react-icons/hi";
 import { BsWhatsapp } from "react-icons/bs";
 export default function Footer() {
