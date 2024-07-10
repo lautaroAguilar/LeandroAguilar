@@ -32,7 +32,10 @@ export default function Button({
             border: secondary ? "1px solid #9c9c9c" : "none",
           }}
         >
-          <Link href={href}>
+          <Link
+            href={href}
+            style={{ width: "100%", height: "100%", alignContent: "center" }}
+          >
             {text} {icon}
           </Link>
         </button>
