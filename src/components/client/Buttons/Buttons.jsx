@@ -17,7 +17,6 @@ export default function Buttons() {
     <>
       <div className={styles.container}>
         <Button secondary href={"#promo"} text={"Ir a promociones"} />
-        <Button text="Dejar una reseña" onClick={goToReview} />
       </div>
     </>
   );

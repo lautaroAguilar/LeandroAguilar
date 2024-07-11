@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import styles from "./Header.module.css";
 import fiatGiama from "../../../public/fiatGiama.svg";
@@ -5,8 +6,9 @@ import { fontTitle } from "@/app/font";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "../Button/Button";
-
+import { useAppContext } from "@/context/AppContext";
 export default function Header() {
+  const { goToReview } = useAppContext();
   return (
     <header className={styles.header}>
       <div className={styles.container_logo}>
@@ -25,40 +27,29 @@ export default function Header() {
       <nav className={styles.nav}>
         <ul>
           <li>
-            <Link
-              href={"/quienes-somos"}
-              className={`${styles.nav_options}`}
-            >
+            <Link href={"/quienes-somos"} className={`${styles.nav_options}`}>
               Quienes Somos
             </Link>
           </li>
           <li>
-            <Link
-              href={"#"}
-              className={`${styles.nav_options}`}
-            >
+            <Link href={"#"} className={`${styles.nav_options}`}>
               Cotizar
             </Link>
           </li>
           <li>
-            <Link
-              href={"#"}
-              className={`${styles.nav_options}`}
-            >
+            <Link href={"#"} className={`${styles.nav_options}`}>
               Contactar Asesor
             </Link>
           </li>
           <li>
-            <Link
-              href={"/catalogo"}
-              className={`${styles.nav_options}`}
-            >
+            <Link href={"/catalogo"} className={`${styles.nav_options}`}>
               Catálogo
             </Link>
           </li>
         </ul>
       </nav>
       <div className={styles.container_cta}>
+        <Button secondary   text="Dejar una reseña" onClick={goToReview} />
         <Button text={"Contactar"} />
       </div>
     </header>

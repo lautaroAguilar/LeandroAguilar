@@ -59,8 +59,10 @@
   width: 100%;
 }
 .container_cta {
-  width: 150px;
+  width: 25%;
   height: auto;
+  display: flex;
+  gap: 1rem;
 }
 @media (min-width: 1024px) {
   .header {

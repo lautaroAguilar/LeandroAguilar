@@ -1,14 +1,10 @@
-"use client";
 import React from "react";
 import Image from "next/image";
 import image from "../../../../public/leandro1.png";
-import Buttons from "@/components/client/Buttons/Buttons";
+import Button from "@/components/Button/Button";
 import { fontTitle } from "../../../app/font";
 import styles from "./Landing.module.css";
-import { useAppContext } from "../../../context/AppContext.jsx";
 export default function landing() {
-  const { currentUser } = useAppContext();
-
   return (
     <div className={styles.container}>
       <div className={styles.container_info}>
@@ -24,7 +20,9 @@ export default function landing() {
             quieras.
           </p>
         </div>
-        <Buttons />
+        <div className={styles.container_button}>
+          <Button href={"/catalogo"} text={"Financiar"} />
+        </div>
       </div>
     </div>
   );
