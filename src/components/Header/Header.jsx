@@ -27,7 +27,7 @@ export default function Header() {
           <li>
             <Link
               href={"/quienes-somos"}
-              className={`${styles.nav_options} ${fontTitle.className}`}
+              className={`${styles.nav_options}`}
             >
               Quienes Somos
             </Link>
@@ -35,7 +35,7 @@ export default function Header() {
           <li>
             <Link
               href={"#"}
-              className={`${styles.nav_options} ${fontTitle.className}`}
+              className={`${styles.nav_options}`}
             >
               Cotizar
             </Link>
@@ -43,7 +43,7 @@ export default function Header() {
           <li>
             <Link
               href={"#"}
-              className={`${styles.nav_options} ${fontTitle.className}`}
+              className={`${styles.nav_options}`}
             >
               Contactar Asesor
             </Link>
@@ -51,7 +51,7 @@ export default function Header() {
           <li>
             <Link
               href={"/catalogo"}
-              className={`${styles.nav_options} ${fontTitle.className}`}
+              className={`${styles.nav_options}`}
             >
               Catálogo
             </Link>

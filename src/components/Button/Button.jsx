@@ -15,17 +15,15 @@ export default function Button({
     <>
       {href ? (
         <button
-          className={fontTitle.className}
           type={type}
           onClick={onClick}
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "48px",
+            height: "36px",
             width: "100%",
             color: "#f5f5f5",
-            fontSize: "18px",
             borderRadius: "8px",
             cursor: "pointer",
             background: secondary || terciary ? "transparent" : "#b71023",
@@ -34,24 +32,28 @@ export default function Button({
         >
           <Link
             href={href}
-            style={{ width: "100%", height: "100%", alignContent: "center" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              alignContent: "center",
+              fontSize: "14px",
+            }}
           >
             {text} {icon}
           </Link>
         </button>
       ) : (
         <button
-          className={fontTitle.className}
           type={type}
           onClick={onClick}
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "48px",
+            height: "36px",
             width: "100%",
             color: "#f5f5f5",
-            fontSize: "18px",
+            fontSize: "14px",
             borderRadius: "8px",
             cursor: "pointer",
             background: secondary || terciary ? "transparent" : "#b71023",

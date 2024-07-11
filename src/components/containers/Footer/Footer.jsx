@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <>
       <div className={styles.footerContainer}>
-        <div className={styles.miniAbout}>
+        {/* <div className={styles.miniAbout}>
           <h3 className={fontTitle.className}>Sobre mí</h3>
           <div className={styles.containerParagraph}>
             <p>
@@ -34,33 +34,22 @@ export default function Footer() {
           width={2000}
           height={500}
           className={styles.cronistas}
-        />
+        /> */}
         <div className={styles.container_contactAndLinks}>
-          <div className={styles.contactContainer}>
-            <div className={styles.title}>
-              <h3 className={fontTitle.className}>
-                Podés contactarme por estos medios
-              </h3>
-            </div>
-            <div className={styles.iconsContainer}>
-              <Link
-                href={"https://api.whatsapp.com/send?phone=5491123231563"}
-                target="_blank"
-              >
-                <BsWhatsapp />
-              </Link>
-              <Link
-                href={
-                  "mailto:yorojo2424@gmail.com?subject=Contacto desde la página web de Leandro Aguilar &body=Escriba su mensaje aquí"
-                }
-                target="_blank"
-              >
-                <HiOutlineMail />
-              </Link>
-              <Link href={"tel:5491123231563"} target="_blank">
-                <HiOutlinePhoneIncoming />
-              </Link>
-            </div>
+          <div className={styles.links}>
+            <h3 className={fontTitle.className}>Links</h3>
+            <ul>
+              <li>
+                <Link href="#about">¿Por qué elegirnos?</Link>
+              </li>
+              <li>
+                <Link href="#promo">Promociones</Link>
+              </li>
+              <li>
+                <Link href="#review">Reseñas</Link>
+              </li>
+              <li onClick={goToReview}>Dejar una reseña</li>
+            </ul>
           </div>
           <div className={styles.links}>
             <h3 className={fontTitle.className}>Links</h3>
@@ -76,6 +65,45 @@ export default function Footer() {
               </li>
               <li onClick={goToReview}>Dejar una reseña</li>
             </ul>
+          </div>
+          <div className={styles.links}>
+            <h3 className={fontTitle.className}>Links</h3>
+            <ul>
+              <li>
+                <Link href="#about">¿Por qué elegirnos?</Link>
+              </li>
+              <li>
+                <Link href="#promo">Promociones</Link>
+              </li>
+              <li>
+                <Link href="#review">Reseñas</Link>
+              </li>
+              <li onClick={goToReview}>Dejar una reseña</li>
+            </ul>
+          </div>
+          <div className={styles.links}>
+            <h3 className={`${fontTitle.className} ${styles.title}`}>
+              Podés contactarme por estos medios
+            </h3>
+            <div className={styles.iconsContainer}>
+              <Link
+                href={"https://api.whatsapp.com/send?phone=5491123231563"}
+                target="_blank"
+              >
+                <BsWhatsapp size={24} />
+              </Link>
+              <Link
+                href={
+                  "mailto:yorojo2424@gmail.com?subject=Contacto desde la página web de Leandro Aguilar &body=Escriba su mensaje aquí"
+                }
+                target="_blank"
+              >
+                <HiOutlineMail size={24} />
+              </Link>
+              <Link href={"tel:5491123231563"} target="_blank">
+                <HiOutlinePhoneIncoming size={24} />
+              </Link>
+            </div>
           </div>
         </div>
         <div className={styles.copy}>

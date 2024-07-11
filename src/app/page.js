@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <main className={styles.main} id="root">
       <Landing />
-      <Review />
       <Image
         className={styles.background}
         src={background}

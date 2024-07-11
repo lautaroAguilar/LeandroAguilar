@@ -17,16 +17,7 @@ export default function Buttons() {
     <>
       <div className={styles.container}>
         <Button secondary href={"#promo"} text={"Ir a promociones"} />
-        {currentUser && !send ? (
-          <Button text="Dejar una reseña" onClick={goToReview} />
-        ) : (
-          ""
-        )}
-        {!currentUser ? (
-          <Button text="Dejar una reseña" href={"/signUp"} />
-        ) : (
-          ""
-        )}
+        <Button text="Dejar una reseña" onClick={goToReview} />
       </div>
     </>
   );

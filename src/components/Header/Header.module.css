@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to bottom, #000 40%, transparent 100%);
+  background: linear-gradient(to bottom, #000000 20%, transparent 90%);
   position: absolute;
   z-index: 10;
 }
@@ -41,7 +41,7 @@
 .nav_options {
   position: relative;
   color: #f5f5f5;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .nav_options::after {
@@ -64,6 +64,6 @@
 }
 @media (min-width: 1024px) {
   .header {
-    padding: 1rem 2rem;
+    padding: 1rem 4rem;
   }
 }
