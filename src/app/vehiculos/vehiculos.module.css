@@ -1,0 +1,40 @@
+.catalogo_container {
+  height: auto;
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 1rem;
+}
+.title {
+  padding-bottom: 2rem;
+  font-size: 32px;
+}
+.info_container {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+.cardContainer {
+  height: 90%;
+  width: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0.5rem;
+  padding-top: 1rem;
+}
+@media (min-width: 1024px) {
+  .catalogo_container {
+    padding: 15vh 4rem;
+  }
+  .cardContainer {
+    height: 60vh;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+}

@@ -42,8 +42,8 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link href={"/catalogo"} className={`${styles.nav_options} ${fontTitle.className}`}>
-              CATÁLOGO
+            <Link href={"/vehiculos"} className={`${styles.nav_options} ${fontTitle.className}`}>
+              VEHÍCULOS
             </Link>
           </li>
         </ul>

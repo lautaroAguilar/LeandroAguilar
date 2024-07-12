@@ -9,7 +9,7 @@ export default function Card() {
   useEffect(() => {
     getPromo();
   }, []);
-  const contactar = "contactar"
+   
   return (
     <>
       {catalogue.map((cata, index) => (
@@ -27,7 +27,7 @@ export default function Card() {
             </div>
           </div>
           <div className={styles.buttonContainer}>
-            <Button href={"https://api.whatsapp.com/send?phone=5491123231563"}  icon={<BsWhatsapp/>}text={contactar}/>
+            <Button href={"https://api.whatsapp.com/send?phone=5491123231563"}  icon={<BsWhatsapp/>}text={"contactar"}/>
             <div className={styles.containerPrice}>
               <p>${cata.price}</p>
             </div>

@@ -133,6 +133,7 @@ export const AppContextProvider = ({ children }) => {
   const getPromo = () => {
     onValue(catalogueRefe, (snap) => {
       let data = snap.val();
+      console.log(data)
       setCatalogue(data);
     });
   };
