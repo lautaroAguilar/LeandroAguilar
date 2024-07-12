@@ -7,22 +7,14 @@ import styles from "./Landing.module.css";
 export default function landing() {
   return (
     <div className={styles.container}>
-      <div className={styles.container_info}>
-        <div className={styles.containerTexts}>
-          <div className={styles.texts}>
-            <h2 className={`${styles.title} ${fontTitle.className}`}>
-              Nueva FIAT <span className={styles.span}>Fastback</span>
-            </h2>
-            <h4 className={styles.subtitle}>Tenela antes que nadie.</h4>
-          </div>
-          <p className={styles.paragraph}>
-            Contactá ahora a nuestro asesor y obtené un test drive el dia que
-            quieras.
-          </p>
+      <div className={styles.containerTexts}>
+        <div className={styles.texts}>
+          <h2 className={`${styles.title} ${fontTitle.className}`}>
+            Nueva FIAT <span className={styles.span}>Fastback</span>
+          </h2>
+          <h4 className={`${styles.subtitle} ${fontTitle.className}`}>Tenela antes que nadie.</h4>
         </div>
-        <div className={styles.container_button}>
-          <Button href={"/catalogo"} text={"Financiar"} />
-        </div>
+        <Button href={"/catalogo"} text={"Financiar"} />
       </div>
     </div>
   );

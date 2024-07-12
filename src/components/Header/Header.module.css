@@ -4,7 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to bottom, #000000 20%, transparent 90%);
+  background: #0c0c0c;
+    /* linear-gradient(to bottom, #000000 20%, transparent 90%) */;
   position: absolute;
   z-index: 10;
 }
@@ -34,14 +35,16 @@
   margin: 5px;
 }
 .title {
-  font-size: 18px;
+  font-size: 14px;
   color: #f5f5f5;
   text-wrap: nowrap;
+  font-weight: 700;
 }
 .nav_options {
   position: relative;
   color: #f5f5f5;
   font-size: 14px;
+  font-weight: 300;
 }
 
 .nav_options::after {
@@ -59,7 +62,7 @@
   width: 100%;
 }
 .container_cta {
-  width: 25%;
+  width: auto;
   height: auto;
   display: flex;
   gap: 1rem;

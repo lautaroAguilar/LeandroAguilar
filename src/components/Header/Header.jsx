@@ -27,29 +27,29 @@ export default function Header() {
       <nav className={styles.nav}>
         <ul>
           <li>
-            <Link href={"/quienes-somos"} className={`${styles.nav_options}`}>
-              Quienes Somos
+            <Link href={"/quienes-somos"} className={`${styles.nav_options} ${fontTitle.className}`}>
+              QUIENES SOMOS
             </Link>
           </li>
           <li>
-            <Link href={"#"} className={`${styles.nav_options}`}>
-              Cotizar
+            <Link href={"#"} className={`${styles.nav_options} ${fontTitle.className}`}>
+              COTIZAR
             </Link>
           </li>
           <li>
-            <Link href={"#"} className={`${styles.nav_options}`}>
-              Contactar Asesor
+            <Link href={"#"} className={`${styles.nav_options} ${fontTitle.className}`}>
+              CONTACTAR ASESOR
             </Link>
           </li>
           <li>
-            <Link href={"/catalogo"} className={`${styles.nav_options}`}>
-              Catálogo
+            <Link href={"/catalogo"} className={`${styles.nav_options} ${fontTitle.className}`}>
+              CATÁLOGO
             </Link>
           </li>
         </ul>
       </nav>
       <div className={styles.container_cta}>
-        <Button secondary   text="Dejar una reseña" onClick={goToReview} />
+        <Button secondary text="Dejar una reseña" onClick={goToReview} />
         <Button text={"Contactar"} />
       </div>
     </header>

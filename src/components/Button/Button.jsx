@@ -15,6 +15,7 @@ export default function Button({
     <>
       {href ? (
         <button
+          className={fontTitle.className}
           type={type}
           onClick={onClick}
           style={{
@@ -22,12 +23,14 @@ export default function Button({
             justifyContent: "center",
             alignItems: "center",
             height: "36px",
-            width: "100%",
-            color: "#f5f5f5",
-            borderRadius: "8px",
-            cursor: "pointer",
+            width: "auto",
+            minWidth: "120px",
             background: secondary || terciary ? "transparent" : "#b71023",
-            border: secondary ? "1px solid #9c9c9c" : "none",
+            color: "#f5f5f5",
+            padding: "8px 12px",
+            borderRadius: "18px",
+            border: secondary ? "2px solid #9c9c9c" : "none",
+            cursor: "pointer",
           }}
         >
           <Link
@@ -36,14 +39,17 @@ export default function Button({
               width: "100%",
               height: "100%",
               alignContent: "center",
-              fontSize: "14px",
+              fontSize: "11px",
+              fontWeight: "700",
+              letterSpacing: "2px",
             }}
           >
-            {text} {icon}
+            {text.toUpperCase()} {icon}
           </Link>
         </button>
       ) : (
         <button
+          className={fontTitle.className}
           type={type}
           onClick={onClick}
           style={{
@@ -51,16 +57,20 @@ export default function Button({
             justifyContent: "center",
             alignItems: "center",
             height: "36px",
-            width: "100%",
-            color: "#f5f5f5",
-            fontSize: "14px",
-            borderRadius: "8px",
-            cursor: "pointer",
+            width: "auto",
+            minWidth: "120px",
             background: secondary || terciary ? "transparent" : "#b71023",
-            border: secondary ? "1px solid #9c9c9c" : "none",
+            color: "#f5f5f5",
+            fontSize: "11px",
+            fontWeight: "700",
+            padding: "8px 12px",
+            borderRadius: "18px",
+            border: secondary ? "1.5px solid #9c9c9c" : "none",
+            cursor: "pointer",
+            letterSpacing: "2px",
           }}
         >
-          {text} {icon}
+          {text.toUpperCase()} {icon}
         </button>
       )}
     </>

@@ -1,12 +1,12 @@
-import { Montserrat, Bebas_Neue } from "next/font/google"; 
+import { Montserrat, Poppins, } from "next/font/google";
 
 export const font = Montserrat({
-    weight:["500","600","700", "800"],
-    subsets: ['latin']
-})
+  weight: ["500", "600", "700", "800"],
+  subsets: ["latin"],
+});
 
-export const fontTitle = Bebas_Neue({
-    weight:["400"],
-    subsets:["latin"],
-    variable: ["--font-bebas"]
-})
+export const fontTitle = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  variable: ["--font-bebas"],
+});
