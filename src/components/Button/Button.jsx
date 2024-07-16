@@ -10,6 +10,8 @@ export default function Button({
   icon,
   secondary,
   terciary,
+  background,
+  color,
 }) {
   return (
     <>
@@ -25,8 +27,13 @@ export default function Button({
             height: "36px",
             width: "auto",
             minWidth: "120px",
-            background: secondary || terciary ? "transparent" : "#b71023",
-            color: "#f5f5f5",
+            background:
+              secondary || terciary
+                ? "transparent"
+                : background
+                ? background
+                : "#b71023",
+            color: color ? color : "#f5f5f5",
             padding: "8px 12px",
             borderRadius: "18px",
             border: secondary ? "2px solid #9c9c9c" : "none",
@@ -59,8 +66,13 @@ export default function Button({
             height: "36px",
             width: "auto",
             minWidth: "120px",
-            background: secondary || terciary ? "transparent" : "#b71023",
-            color: "#f5f5f5",
+            background:
+              secondary || terciary
+                ? "transparent"
+                : background
+                ? background
+                : "#b71023",
+            color: color ? color : "#f5f5f5",
             fontSize: "11px",
             fontWeight: "700",
             padding: "8px 12px",
