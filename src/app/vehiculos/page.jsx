@@ -5,7 +5,7 @@ import { fontTitle } from "@/app/font";
 export default function catalogo() {
   return (
     <>
-      <div className={styles.catalogo_container} id="promo">
+      <div className={styles.catalogo_container}>
         <h2 className={`${styles.title} ${fontTitle.className}`}>
           Encontrá tu próximo Fiat
         </h2>

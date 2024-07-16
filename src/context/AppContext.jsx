@@ -7,7 +7,15 @@ import {
   useState,
 } from "react";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, query, push, onValue } from "firebase/database";
+import {
+  getDatabase,
+  ref,
+  query,
+  push,
+  onValue,
+  get,
+  child,
+} from "firebase/database";
 import {
   getAuth,
   onAuthStateChanged,
@@ -60,8 +68,7 @@ export const AppContextProvider = ({ children }) => {
   };
   const logOut = (e) => {
     e.preventDefault();
-    signOut(auth).then((result) => {
-    });
+    signOut(auth).then((result) => {});
   };
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -94,7 +101,7 @@ export const AppContextProvider = ({ children }) => {
     try {
       e.preventDefault();
       sendToFirebase();
-       if (reseña !== "") {
+      if (reseña !== "") {
         window.location.replace("/");
       }
     } catch (error) {
@@ -129,13 +136,27 @@ export const AppContextProvider = ({ children }) => {
   };
   //PROMO
   const [catalogue, setCatalogue] = useState([]);
-
+  const [car, setCar] = useState("");
   const getPromo = () => {
     onValue(catalogueRefe, (snap) => {
       let data = snap.val();
-      console.log(data)
       setCatalogue(data);
     });
+  };
+  const getVehiculoById = async (vehiculoId) => {
+    const dbRef = ref(db);
+    try {
+      const snapshot = await get(child(dbRef, `catalogue/${vehiculoId}`));
+      if (snapshot.exists()) {
+        setCar(snapshot.val());
+      } else {
+        console.log("No data available");
+        return null;
+      }
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
   };
   return (
     <>
@@ -161,6 +182,8 @@ export const AppContextProvider = ({ children }) => {
 
           getPromo,
           catalogue,
+          getVehiculoById,
+          car,
         }}
       >
         {children}

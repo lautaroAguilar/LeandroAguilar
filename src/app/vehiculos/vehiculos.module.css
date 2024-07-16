@@ -17,6 +17,9 @@
   height: auto;
   display: flex;
 }
+.texts_container p{
+  padding-bottom: 2rem;
+}
 .cardContainer {
   height: 90%;
   width: 100%;
@@ -29,12 +32,14 @@
 }
 @media (min-width: 1024px) {
   .catalogo_container {
-    padding: 15vh 4rem;
+    padding: 15vh 4rem 10vh 4rem;
+    gap: 2rem;
   }
   .cardContainer {
-    height: 60vh;
+    height: auto;
     flex-direction: row;
     overflow-x: scroll;
     overflow-y: hidden;
+    padding: 2rem 0.5rem;
   }
 }
