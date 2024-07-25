@@ -158,6 +158,21 @@ export const AppContextProvider = ({ children }) => {
       return null;
     }
   };
+  async function getFinancing() {
+    const dbRef = ref(db);
+    try {
+      const snapshot = await get(child(dbRef, `financings/`));
+      if (snapshot.exists()) {
+        return snapshot.val();
+      } else {
+        console.log("No available");
+        return null;
+      }
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
   return (
     <>
       <AppContext.Provider
@@ -184,6 +199,7 @@ export const AppContextProvider = ({ children }) => {
           catalogue,
           getVehiculoById,
           car,
+          getFinancing,
         }}
       >
         {children}
