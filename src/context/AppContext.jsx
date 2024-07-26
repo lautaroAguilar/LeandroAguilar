@@ -48,6 +48,9 @@ const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
 export const AppContextProvider = ({ children }) => {
+  //GENERAL STATES}
+  const [isOpen, setIsOpen] = useState(false);
+
   //AUTH
 
   const [currentUser, setCurrentUser] = useState("");
@@ -200,6 +203,9 @@ export const AppContextProvider = ({ children }) => {
           getVehiculoById,
           car,
           getFinancing,
+
+          isOpen, 
+          setIsOpen
         }}
       >
         {children}

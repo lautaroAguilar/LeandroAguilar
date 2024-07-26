@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   background: #0c0c0c;
-    /* linear-gradient(to bottom, #000000 20%, transparent 90%) */;
+  padding: 0 1rem;
   position: absolute;
   z-index: 10;
 }
@@ -15,18 +15,28 @@
 .nav ul {
   width: auto;
   display: flex;
+  flex-direction: column;
   gap: 1rem;
   list-style: none;
+}
+.nav ul li {
+  padding: 8px 0;
 }
 .container_logo {
   height: 100%;
   width: auto;
   display: flex;
   align-items: center;
+  gap: 1rem;
+}
+.link_logo {
+  height: 100%;
+  align-content: center;
 }
 .giama {
-  width: auto;
   height: 100%;
+  width: auto;
+  max-width: 80px;
 }
 .divider {
   width: 2px;
@@ -35,15 +45,15 @@
   margin: 5px;
 }
 .title {
-  font-size: 14px;
+  font-size: 12px;
   color: #f5f5f5;
   text-wrap: nowrap;
-  font-weight: 700;
+  font-weight: 600;
 }
 .nav_options {
   position: relative;
-  color: #f5f5f5;
-  font-size: 11px;
+  color: #0c0c0c;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 2px;
 }
@@ -68,8 +78,34 @@
   display: flex;
   gap: 1rem;
 }
-@media (min-width: 1024px) {
+.burguerMenu_container {
+  width: 70%;
+  height: 100vh;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  padding-top: 10vh;
+  position: absolute;
+  right: 0;
+  border-radius: 1rem 0 0 1rem;
+}
+@media (min-width: 769px) {
   .header {
     padding: 1rem 4rem;
+  }
+  .title {
+    font-size: 14px;
+    color: #f5f5f5;
+    text-wrap: nowrap;
+    font-weight: 700;
+  }
+  .nav_options {
+    color: #f5f5f5;
+    font-size: 11px;
+  }
+  .nav ul {
+    flex-direction: row;
+  }
+  .container_logo{
+    gap: .5rem;
   }
 }
