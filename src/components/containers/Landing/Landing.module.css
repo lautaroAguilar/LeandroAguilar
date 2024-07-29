@@ -28,8 +28,10 @@
   border-radius: 0rem 0rem 15.625rem 0rem;
 }
 .containerTexts {
+  height: 50%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
   z-index: 5;
 }

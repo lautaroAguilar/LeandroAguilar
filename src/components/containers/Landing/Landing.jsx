@@ -14,7 +14,7 @@ export default function landing() {
           </h2>
           <h4 className={`${styles.subtitle} ${fontTitle.className}`}>Tenela antes que nadie.</h4>
         </div>
-        <Button href={"/catalogo"} text={"Financiar"} />
+        <Button href={"/vehiculos"} text={"Financiar"} background={"#f5f5f5"} color={"#0c0c0c"}/>
       </div>
     </div>
   );

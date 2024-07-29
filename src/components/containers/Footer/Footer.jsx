@@ -37,53 +37,31 @@ export default function Footer() {
         /> */}
         <div className={styles.container_contactAndLinks}>
           <div className={styles.links}>
-            <h3 className={fontTitle.className}>Links</h3>
+            <h3 className={fontTitle.className}>LINKS</h3>
             <ul>
               <li>
-                <Link href="#about">¿Por qué elegirnos?</Link>
+                <Link href="#about" className={`${fontTitle.className} ${styles.footer_links}`}>
+                  ¿POR QUÉ ELEGIRNOS?
+                </Link>
               </li>
               <li>
-                <Link href="#promo">Promociones</Link>
+                <Link href="#promo" className={`${fontTitle.className} ${styles.footer_links}`}>
+                  PROMOCIONES
+                </Link>
               </li>
               <li>
-                <Link href="#review">Reseñas</Link>
+                <Link href="#review" className={`${fontTitle.className} ${styles.footer_links}`}>
+                  RESEÑAS
+                </Link>
               </li>
-              <li onClick={goToReview}>Dejar una reseña</li>
-            </ul>
-          </div>
-          <div className={styles.links}>
-            <h3 className={fontTitle.className}>Links</h3>
-            <ul>
-              <li>
-                <Link href="#about">¿Por qué elegirnos?</Link>
+              <li onClick={goToReview} className={`${fontTitle.className} ${styles.footer_links}`}>
+                DEJAR UNA RESEÑA
               </li>
-              <li>
-                <Link href="#promo">Promociones</Link>
-              </li>
-              <li>
-                <Link href="#review">Reseñas</Link>
-              </li>
-              <li onClick={goToReview}>Dejar una reseña</li>
-            </ul>
-          </div>
-          <div className={styles.links}>
-            <h3 className={fontTitle.className}>Links</h3>
-            <ul>
-              <li>
-                <Link href="#about">¿Por qué elegirnos?</Link>
-              </li>
-              <li>
-                <Link href="#promo">Promociones</Link>
-              </li>
-              <li>
-                <Link href="#review">Reseñas</Link>
-              </li>
-              <li onClick={goToReview}>Dejar una reseña</li>
             </ul>
           </div>
           <div className={styles.links}>
             <h3 className={`${fontTitle.className} ${styles.title}`}>
-              Podés contactarme por estos medios
+              CONTACTOS
             </h3>
             <div className={styles.iconsContainer}>
               <Link

@@ -152,8 +152,7 @@ export default function Header() {
             <Button secondary text="Dejar una reseña" onClick={goToReview} />
             <Button
               text={"Contactar"}
-              background={"#f5f5f5"}
-              color={"#0c0c0c"}
+              color={"#f5f5f5"}
             />
           </div>
         </>

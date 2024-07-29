@@ -24,7 +24,6 @@ p {
   color: #3f3f43;
   font-size: 14px;
   line-height: 24px;
-  max-width: 40vw;
 }
 button:hover {
   filter: brightness(90%);
