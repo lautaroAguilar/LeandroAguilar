@@ -40,21 +40,33 @@ export default function Footer() {
             <h3 className={fontTitle.className}>LINKS</h3>
             <ul>
               <li>
-                <Link href="#about" className={`${fontTitle.className} ${styles.footer_links}`}>
+                <Link
+                  href="#about"
+                  className={`${fontTitle.className} ${styles.footer_links}`}
+                >
                   ¿POR QUÉ ELEGIRNOS?
                 </Link>
               </li>
               <li>
-                <Link href="#promo" className={`${fontTitle.className} ${styles.footer_links}`}>
+                <Link
+                  href="#promo"
+                  className={`${fontTitle.className} ${styles.footer_links}`}
+                >
                   PROMOCIONES
                 </Link>
               </li>
               <li>
-                <Link href="#review" className={`${fontTitle.className} ${styles.footer_links}`}>
+                <Link
+                  href="#review"
+                  className={`${fontTitle.className} ${styles.footer_links}`}
+                >
                   RESEÑAS
                 </Link>
               </li>
-              <li onClick={goToReview} className={`${fontTitle.className} ${styles.footer_links}`}>
+              <li
+                onClick={goToReview}
+                className={`${fontTitle.className} ${styles.footer_links}`}
+              >
                 DEJAR UNA RESEÑA
               </li>
             </ul>
@@ -82,6 +94,51 @@ export default function Footer() {
                 <HiOutlinePhoneIncoming size={24} />
               </Link>
             </div>
+          </div>
+          <div className={styles.links}>
+            <h3 className={fontTitle.className}>VEHICULOS</h3>
+            <ul>
+              <li>
+                <Link
+                  href="#about"
+                  className={`${fontTitle.className} ${styles.footer_links}`}
+                >
+                  TORO
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#promo"
+                  className={`${fontTitle.className} ${styles.footer_links}`}
+                >
+                  STRADA
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#review"
+                  className={`${fontTitle.className} ${styles.footer_links}`}
+                >
+                  CRONOS
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#review"
+                  className={`${fontTitle.className} ${styles.footer_links}`}
+                >
+                  FASTBACK
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#review"
+                  className={`${fontTitle.className} ${styles.footer_links}`}
+                >
+                  PULSE
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
         <div className={styles.copy}>

@@ -6,19 +6,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  padding: 0 1rem;
+  gap: 2rem;
+  padding: 15vh 1rem 1rem 1rem;
 }
 .title {
-  padding-bottom: 2rem;
   font-size: 32px;
 }
 .info_container {
   width: 100%;
   height: auto;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
-.texts_container p{
+.texts_container p {
   padding-bottom: 2rem;
+}
+.img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
 .cardContainer {
   height: 90%;
@@ -29,6 +37,7 @@
   align-items: center;
   padding: 0 0.5rem;
   padding-top: 1rem;
+  gap: 2rem;
 }
 @media (min-width: 1024px) {
   .catalogo_container {
@@ -41,5 +50,16 @@
     overflow-x: scroll;
     overflow-y: hidden;
     padding: 2rem 0.5rem;
+  }
+  .info_container {
+    flex-direction: row;
+  }
+  .texts_container {
+    width: 45vw;
+  }
+  .img {
+    width: 30vw;
+    height: auto;
+    border-radius: 4px;
   }
 }

@@ -42,7 +42,6 @@
   width: 2px;
   height: 100%;
   background-color: white;
-  margin: 5px;
 }
 .title {
   font-size: 12px;
@@ -76,7 +75,8 @@
   width: auto;
   height: auto;
   display: flex;
-  gap: 1rem;
+  gap: .5rem;
+  flex-wrap: wrap;
 }
 .burguerMenu_container {
   width: 70%;
@@ -93,7 +93,6 @@
     padding: 1rem 4rem;
   }
   .title {
-    font-size: 14px;
     color: #f5f5f5;
     text-wrap: nowrap;
     font-weight: 700;

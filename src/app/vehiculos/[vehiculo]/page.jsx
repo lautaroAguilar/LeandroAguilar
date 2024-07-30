@@ -151,6 +151,7 @@ export default function Page() {
                       <li>
                         <span>ANTICIPO:</span>
                         <p>
+                          $
                           {financeOption === "first_financing"
                             ? financingData?.first_financing?.down_payment
                             : financeOption === "second_financing"
@@ -165,6 +166,7 @@ export default function Page() {
                       <li>
                         <span>SALDO A FINANCIAR:</span>
                         <p>
+                          $
                           {financeOption === "first_financing"
                             ? financingData?.first_financing?.financing_amount
                             : financeOption === "second_financing"
@@ -205,11 +207,11 @@ export default function Page() {
                       </li>
                       <li>
                         <span>VALOR DE CUOTA:</span>
-                        <p>{installmentValue}</p>
+                        <p>${installmentValue}</p>
                       </li>
                       <li>
                         <span>TNA:</span>
-                        <p>{tnaValue}</p>
+                        <p>{tnaValue}%</p>
                       </li>
                     </ul>
                   </div>
@@ -255,7 +257,7 @@ export default function Page() {
           </div>
         </>
       ) : (
-        <h5>¡Lo sentimos! Ha ocurrido un error.</h5>
+        <h5>¡Lo sentimos! Ha ocurrido un error. Por favor, espera un segundo.</h5>
       )}
     </div>
   );
