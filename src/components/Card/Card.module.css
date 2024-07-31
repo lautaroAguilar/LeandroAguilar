@@ -1,10 +1,8 @@
 .card {
   width: 100%;
-  max-width: 350px;
   height: auto;
   display: flex;
   flex-direction: column;
-  border-radius: 40px;
   border-radius: 4px;
   background: #fafafa;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
@@ -38,6 +36,7 @@
   width: 100%;
   max-height: 180px;
   margin-bottom: 10px;
+  overflow: hidden;
 }
 
 .imgContainer img {
@@ -58,6 +57,7 @@
   .card {
     height: 100%;
     min-width: 300px;
+    max-width: 350px;
     min-height: 400px;
     justify-content: space-between;
   }

@@ -115,7 +115,7 @@ export default function Page() {
           <Modal open={open} onClose={handleClose}>
             <Slide direction="up" in={open} mountOnEnter unmountOnExit>
               <div className={styles.modal_container}>
-                <h3>Financiamiento</h3>
+                <h3>Simulador de Financiamiento</h3>
                 <div className={styles.form_container}>
                   <StyledFormControl fullWidth={true} size="small">
                     <InputLabel id="demo-multiple-name-label">
@@ -217,7 +217,10 @@ export default function Page() {
                   </div>
                   <Button
                     text={"Contactar asesor"}
-                    href={"https://api.whatsapp.com/send?phone=5491123231563"}
+                    href={
+                      "https://api.whatsapp.com/send?phone=5491123231563&text=Buen%20día,%20me%20comunico%20desde%20la%20página%20de%20Leandro%20Aguilar%20-%20Fiat%20Giama"
+                    }
+                    target={"_blank"}
                     icon={<BsWhatsapp size={14} />}
                   />
                 </div>
@@ -251,13 +254,15 @@ export default function Page() {
                 </p>
               </div>
               <div className={styles.button_container}>
-                <Button text={"Financiación"} onClick={handleOpen} />
+                <Button text={"cotizar"} onClick={handleOpen} />
               </div>
             </div>
           </div>
         </>
       ) : (
-        <h5>¡Lo sentimos! Ha ocurrido un error. Por favor, espera un segundo.</h5>
+        <h5>
+          ¡Lo sentimos! Ha ocurrido un error. Por favor, espera un segundo.
+        </h5>
       )}
     </div>
   );

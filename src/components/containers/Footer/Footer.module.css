@@ -8,25 +8,6 @@
   background: #0c0c0c;
   padding: 1rem;
 }
-.miniAbout {
-  width: 100%;
-  height: auto;
-  margin-bottom: 2rem;
-}
-.footerContainer .miniAbout h3 {
-  font-size: 36px;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-.miniAbout p {
-  margin-bottom: 10px;
-  max-width: 400px;
-}
-.cronistas {
-  width: 115%;
-  height: auto;
-  margin-bottom: 2rem;
-}
 .container_contactAndLinks {
   width: 100%;
 }
@@ -133,12 +114,6 @@
     justify-content: space-around;
     align-items: center;
     margin: 4rem 0;
-  }
-  .containerParagraph {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 30vh;
   }
   .container_contactAndLinks {
     display: flex;

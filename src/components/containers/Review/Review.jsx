@@ -8,7 +8,7 @@ export default function Review() {
   return (
     <>
       <div id="review" className={styles.reviewContainer}>
-        <h2 className={fontTitle.className}>Clientes</h2>
+        <h2 className={fontTitle.className}>TESTIMONIOS</h2>
         <div className={styles.cardContainer}>
           <ReviewCard />
         </div>

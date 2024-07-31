@@ -12,6 +12,7 @@ export default function Button({
   terciary,
   background,
   color,
+  target
 }) {
   return (
     <>
@@ -42,6 +43,7 @@ export default function Button({
         >
           <Link
             href={href}
+            target={target}
             style={{
               width: "100%",
               height: "100%",

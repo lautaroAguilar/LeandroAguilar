@@ -56,7 +56,10 @@ export default function Header() {
                     </li>
                     <li>
                       <Link
-                        href={"#"}
+                        href={
+                          "https://api.whatsapp.com/send?phone=5491123231563&text=Buen%20día,%20me%20comunico%20desde%20la%20página%20de%20Leandro%20Aguilar%20-%20Fiat%20Giama"
+                        }
+                        target={"_blank"}
                         className={`${styles.nav_options} ${fontTitle.className}`}
                       >
                         CONTACTAR ASESOR
@@ -132,14 +135,6 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href={"#"}
-                  className={`${styles.nav_options} ${fontTitle.className}`}
-                >
-                  CONTACTAR ASESOR
-                </Link>
-              </li>
-              <li>
-                <Link
                   href={"/vehiculos"}
                   className={`${styles.nav_options} ${fontTitle.className}`}
                 >
@@ -153,6 +148,10 @@ export default function Header() {
             <Button
               text={"Contactar"}
               color={"#f5f5f5"}
+              href={
+                "https://api.whatsapp.com/send?phone=5491123231563&text=Buen%20día,%20me%20comunico%20desde%20la%20página%20de%20Leandro%20Aguilar%20-%20Fiat%20Giama"
+              }
+              target={"_blank"}
             />
           </div>
         </>

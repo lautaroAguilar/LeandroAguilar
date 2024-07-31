@@ -31,7 +31,7 @@ export default function Card() {
                 onClick={() => {
                   handleSeeDetail(cata.key);
                 }}
-                text={"Ver más"}
+                text={"cotizar"}
                 background={"#0c0c0c"}
               />
             </div>
