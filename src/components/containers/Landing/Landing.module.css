@@ -45,6 +45,7 @@
 }
 .title {
   font-size: 52px;
+  color: #fafafa;
 }
 .span {
   background: linear-gradient(to bottom, #b71023 40%, #0c0c0c 90%);

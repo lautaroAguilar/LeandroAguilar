@@ -15,8 +15,7 @@ export default function quienesSomos() {
               asesoramiento o una estafa?
             </p>
             <p>
-              Si sigues buscando ese tipo de "ofertas", vas a tener los mismos
-              resultados. Fiat Giama es la empresa NÚMERO 1 en PATENTAMIENTO a
+              No sigas buscando ese tipo de "ofertas". Fiat Giama es la empresa NÚMERO 1 en PATENTAMIENTO a
               nivel país, contamos con las mejores condiciones de compra por ser
               la agencia First Class con la mayor cantidad de autos entregados.
             </p>
