@@ -12,7 +12,8 @@ export default function Button({
   terciary,
   background,
   color,
-  target
+  target,
+  style,
 }) {
   return (
     <>
@@ -39,6 +40,7 @@ export default function Button({
             borderRadius: "18px",
             border: secondary ? "2px solid #9c9c9c" : "none",
             cursor: "pointer",
+            ...style,
           }}
         >
           <Link
@@ -82,6 +84,7 @@ export default function Button({
             border: secondary ? "1.5px solid #9c9c9c" : "none",
             cursor: "pointer",
             letterSpacing: "2px",
+            ...style,
           }}
         >
           {text.toUpperCase()} {icon}

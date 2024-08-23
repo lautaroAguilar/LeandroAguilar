@@ -14,9 +14,7 @@ import { BsWhatsapp } from "react-icons/bs";
 import { useParams } from "next/navigation";
 import { useAppContext } from "@/context/AppContext";
 import styles from "./vehiculo.module.css";
-import Image from "next/image";
 import Button from "@/components/Button/Button";
-import image from "../../../../public/Fastback-interior.jpg";
 
 const StyledFormControl = styled(FormControl)({
   "& label": {
@@ -107,7 +105,25 @@ export default function Page() {
     };
     fetchFinancing();
   }, []);
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat("es-AR", {
+      style: "currency",
+      currency: "ARS",
+    }).format(value);
+  };
+  const getNextWeekDate = () => {
+    const today = new Date();
+    const nextWeek = new Date(today);
+    nextWeek.setDate(today.getDate() + 7);
+    return nextWeek.toLocaleDateString("es-AR", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
 
+  const nextWeekDate = getNextWeekDate();
   return (
     <div className={styles.container}>
       {car ? (
@@ -228,28 +244,23 @@ export default function Page() {
               </div>
             </Slide>
           </Modal>
-          <div className={styles.title_container}>
-            <h2 className={styles.title}>{car.title.toUpperCase()}</h2>
-          </div>
           <div className={styles.vehicle_detail}>
-            <Image src={image} alt={car.title} className={styles.photo} />
+            <img src={car.img} alt={car.title} className={styles.photo}/>
             <div className={styles.info_container}>
-              <h4>{car.subtitle.toUpperCase()}</h4>
+              <h2 className={styles.title}>{car.title.toUpperCase()}</h2>
               <div className={styles.texts_container}>
-                <p>
-                  La nueva Territory se destaca por su tecnología innovadora,
-                  brindando una experiencia de manejo única.
-                </p>
-                <p>
-                  Sofisticada y minimalista, la Nueva Territory se destaca por
-                  la calidad de sus materiales y su amplio espacio interior.
-                </p>
+                <p>{car.first_description}</p>
+                <p>{car.second_description}</p>
               </div>
               <div className={styles.price_container}>
-                <p className={styles.offer}>$ 47.580.200</p>
-                <p className={styles.offer_price}>$ {car.price}</p>
+                <p className={styles.offer}>
+                  {formatCurrency(car.price + 2000000)}
+                </p>
+                <p className={styles.offer_price}>
+                  {formatCurrency(car.price)}
+                </p>
                 <p className={styles.offer_note}>
-                  *Precio especial hasta la semana que viene. Contactá ahora a
+                  *Precio especial hasta {nextWeekDate}. Contactá ahora a
                   nuestro asesor.
                 </p>
               </div>

@@ -13,6 +13,12 @@ export default function Card() {
   const handleSeeDetail = (vehiculoId) => {
     router.push(`/vehiculos/${vehiculoId}`);
   };
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat("es-AR", {
+      style: "currency",
+      currency: "ARS",
+    }).format(value);
+  };
   return (
     <>
       {catalogue.map((cata, index) => (
@@ -26,7 +32,12 @@ export default function Card() {
               <p>{cata.subtitle}</p>
             </div>
             <div className={styles.buttonContainer}>
-              <p>${cata.price}</p>
+              <div>
+                <p className={styles.offer}>
+                  {formatCurrency(cata.price + 2000000)}
+                </p>
+                <p className={styles.offer_price}>{formatCurrency(cata.price)}</p>
+              </div>
               <Button
                 onClick={() => {
                   handleSeeDetail(cata.key);

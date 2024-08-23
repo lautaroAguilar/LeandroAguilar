@@ -38,6 +38,15 @@
   padding: 1rem 0;
   gap: 2rem;
 }
+.container_image{
+  height: 420px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  overflow: hidden;
+}
 @media (min-width: 1024px) {
   .catalogo_container {
     padding: 15vh 4rem 10vh 4rem;

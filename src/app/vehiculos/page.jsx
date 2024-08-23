@@ -2,7 +2,7 @@
 import Card from "@/components/Card/Card";
 import styles from "./vehiculos.module.css";
 import { fontTitle } from "@/app/font";
-import image from "../../../public/Fastback-interior.jpg";
+import image from "../../../public/fastback_lobby.jpeg";
 import Image from "next/image";
 export default function catalogo() {
   return (
@@ -23,11 +23,13 @@ export default function catalogo() {
               10:00 a 18:00. Llamar al: 11-2323-1563.
             </p>
           </div>
-          <Image
-            src={image}
-            alt="Imagen ilustrativa interior Fiat Pulse"
-            className={styles.img}
-          />
+          <div className={styles.container_image}>
+            <Image
+              src={image}
+              alt="Imagen ilustrativa interior Fiat Pulse"
+              className={styles.img}
+            />
+          </div>
         </div>
         <div className={styles.cardContainer}>
           <Card />
