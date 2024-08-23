@@ -1,8 +1,10 @@
 "use client";
 import Button from "../../components/Button/Button";
 import styles from "./signUp.module.css";
-import { FcGoogle } from "react-icons/fc" 
+import { FcGoogle } from "react-icons/fc";
 import { useAppContext } from "../../context/AppContext.jsx";
+import authentication from "../../../public/authentication.svg";
+import Image from "next/image";
 export default function Login() {
   const { logInGoogle } = useAppContext();
 
@@ -12,14 +14,23 @@ export default function Login() {
         <div className={styles.login}>
           <div className={styles.texts}>
             <h3>Primero necesitas identificarte</h3>
-            <p>Podés iniciar sesión con tu cuenta de Google.</p>
+            <p>
+              Para poder dejar una reseña, necesitamos saber quien sos. Por
+              favor inicia sesión con Google para continuar.
+            </p>
           </div>
+          <Image
+            src={authentication}
+            alt="Ilustración de autenticación"
+            style={{ width: "60%", height: "auto" }}
+          />
           <div className={styles.buttonsContainer}>
-            <a className={styles.google} onClick={logInGoogle}>
-              <FcGoogle/>
-              Iniciar sesión con Google
-            </a>
-            <Button text="Volver" href={"/"} />
+            <Button
+              text="Iniciar sesión con Google"
+              onClick={logInGoogle}
+              icon={<FcGoogle />}
+              background={"#0c0c0c"}
+            />
           </div>
         </div>
       </div>

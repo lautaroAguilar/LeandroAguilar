@@ -31,19 +31,21 @@ export default function ReviewModal() {
         </div>
         {/* <div className="starRatio"></div> */}
         <form onSubmit={submitReview} className={styles.sendReview}>
-          <label htmlFor="opinion">Dejá tu opinión:</label>
-          <textarea
-            required
-            id="opinion"
-            name="opinion"
-            value={reseña}
-            onChange={reviewChange}
-          ></textarea>
+          <div className={styles.textarea_container}>
+            <label htmlFor="opinion">Dejá tu opinión:</label>
+            <textarea
+              required
+              id="opinion"
+              name="opinion"
+              value={reseña}
+              onChange={reviewChange}
+            ></textarea>
+          </div>
           <div className={styles.buttons}>
-            <Button text="Cancelar" href="/" />
             {send && <p>Ya enviaste una reseña con esta cuenta</p>}
             {send && <p>No puedes enviar mas de una.</p>}
-            {!send && <Button type="submit" text="Publicar" />}
+            {!send && <Button type="submit" text="Publicar" background={"#0c0c0c"}/>}
+            <Button text="Cancelar" href="/" terciary color={"#0c0c0c"} />
           </div>
         </form>
       </div>
