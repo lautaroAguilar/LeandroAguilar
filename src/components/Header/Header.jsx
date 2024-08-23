@@ -10,9 +10,8 @@ import { useAppContext } from "@/context/AppContext";
 import { IoMenu } from "react-icons/io5";
 import { Modal, Slide } from "@mui/material";
 export default function Header() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  const { goToReview, isOpen, setIsOpen } = useAppContext();
+  const { goToReview, isOpen, setIsOpen, isMobile } = useAppContext();
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -21,14 +20,6 @@ export default function Header() {
     setIsOpen(false);
   };
 
-  useEffect(() => {
-    console.log(isOpen);
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
   return (
     <header className={styles.header}>
       {isMobile ? (
@@ -48,25 +39,6 @@ export default function Header() {
                     </li>
                     <li>
                       <Link
-                        href={"#"}
-                        className={`${styles.nav_options} ${fontTitle.className}`}
-                      >
-                        COTIZAR
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href={
-                          "https://api.whatsapp.com/send?phone=5491123231563&text=Buen%20día,%20me%20comunico%20desde%20la%20página%20de%20Leandro%20Aguilar%20-%20Fiat%20Giama"
-                        }
-                        target={"_blank"}
-                        className={`${styles.nav_options} ${fontTitle.className}`}
-                      >
-                        CONTACTAR ASESOR
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
                         href={"/vehiculos"}
                         className={`${styles.nav_options} ${fontTitle.className}`}
                       >
@@ -74,6 +46,24 @@ export default function Header() {
                       </Link>
                     </li>
                   </ul>
+                  <div className={styles.container_cta_mobile}>
+                    <Button
+                      secondary
+                      text="Dejar una reseña"
+                      onClick={goToReview}
+                      color={"#0c0c0c"}
+                      style={{ width: "100%", border: "1px solid #0c0c0c" }}
+                    />
+                    <Button
+                      text={"Contactar"}
+                      color={"#f5f5f5"}
+                      href={
+                        "https://api.whatsapp.com/send?phone=5491123231563&text=Buen%20día,%20me%20comunico%20desde%20la%20página%20de%20Leandro%20Aguilar%20-%20Fiat%20Giama"
+                      }
+                      target={"_blank"}
+                      style={{ width: "100%" }}
+                    />
+                  </div>
                 </nav>
               </div>
             </Slide>
@@ -123,14 +113,6 @@ export default function Header() {
                   className={`${styles.nav_options} ${fontTitle.className}`}
                 >
                   QUIENES SOMOS
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={"#"}
-                  className={`${styles.nav_options} ${fontTitle.className}`}
-                >
-                  COTIZAR
                 </Link>
               </li>
               <li>

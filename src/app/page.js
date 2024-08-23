@@ -1,12 +1,16 @@
+"use client"
 import styles from "./page.module.css";
 import background from "../../public/Fastback.jpg";
+import backgroundMobile from "../../public/fastback.jpeg";
 import Landing from "../components/containers/Landing/Landing";
 import Review from "@/components/containers/Review/Review";
 import leandro from "../../public/leandro1.png";
 import Image from "next/image";
 import { fontTitle } from "./font";
+import { useAppContext } from "@/context/AppContext";
 
 export default function Home() {
+  const { isMobile } = useAppContext();
   return (
     <main className={styles.main} id="root">
       <Landing />
@@ -35,7 +39,7 @@ export default function Home() {
       <Review />
       <Image
         className={styles.background}
-        src={background}
+        src={isMobile ? backgroundMobile : background}
         alt="background iamge"
       />
     </main>
