@@ -1,10 +1,16 @@
 "use client";
+import { useEffect, useState } from "react";
 import Card from "@/components/Card/Card";
 import styles from "./vehiculos.module.css";
 import { fontTitle } from "@/app/font";
 import image from "../../../public/fastback_lobby.jpeg";
 import Image from "next/image";
+import { useAppContext } from "@/context/AppContext";
 export default function catalogo() {
+  const { getPromo, catalogue } = useAppContext();
+  useEffect(() => {
+    getPromo();
+  }, []);
   return (
     <>
       <div className={styles.catalogo_container}>
@@ -32,7 +38,7 @@ export default function catalogo() {
           </div>
         </div>
         <div className={styles.cardContainer}>
-          <Card />
+          <Card catalogue={catalogue} />
         </div>
       </div>
     </>

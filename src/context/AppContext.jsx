@@ -168,7 +168,6 @@ export const AppContextProvider = ({ children }) => {
       if (snapshot.exists()) {
         return snapshot.val();
       } else {
-        console.log("No available");
         return null;
       }
     } catch (error) {

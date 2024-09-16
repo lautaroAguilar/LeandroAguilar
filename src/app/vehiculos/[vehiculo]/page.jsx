@@ -39,11 +39,11 @@ const StyledFormControl = styled(FormControl)({
 });
 
 export default function Page() {
-  const { getVehiculoById, car, getFinancing } = useAppContext();
+  const { getVehiculoById, car, catalogue } = useAppContext();
   const { vehiculo } = useParams(); /* obtiene el ID del vehículo */
   const [open, setOpen] = useState(false);
   const [financeOption, setFinanceOption] = useState("");
-  const [financingData, setFinancingData] = useState("");
+  /* const [financingData, setFinancingData] = useState(""); */
   const [installments, setInstallments] = useState([]);
   const [installmentOption, setInstallmentOption] = useState("");
   const [installmentValue, setInstallmentValue] = useState("");
@@ -51,17 +51,17 @@ export default function Page() {
 
   /* Para igualar las claves de la DB con el select de cuotas */
   const installmentMapping = {
-    12: "value_twelve_installments",
-    24: "value_twenty_installments",
-    36: "value_thirty_installments",
-    48: "value_forty_installments",
+    24: "value_twelve_installments",
+    36: "value_twenty_installments",
+    48: "value_thirty_installments",
+    60: "value_forty_installments",
   };
   const tnaMapping = {
-    12: "APR_twelve_installments",
-    24: "APR_twenty_installments",
-    36: "APR_thirty_installments",
-    48: "APR_forty_installments",
-  };
+    24: "APR_twelve_installments",
+    36: "APR_twenty_installments",
+    48: "APR_thirty_installments",
+    60: "APR_forty_installments",
+  };w
   const handleOpen = () => {
     setOpen(true);
   };
@@ -72,7 +72,7 @@ export default function Page() {
   function handleChange(e) {
     const choosed = e.target.value;
     setFinanceOption(choosed);
-    setInstallments(financingData?.[choosed]?.installments || []);
+    setInstallments(car?.financings?.[choosed]?.installments || []);
     setInstallmentOption(""); // Resetear select de cuotas y valores
     setInstallmentValue("");
     setTnaValue("");
@@ -86,9 +86,10 @@ export default function Page() {
     const tnaKey = tnaMapping[choosed];
     /* se obtiene el valor para setearlo */
     const value =
-      financingData?.[financeOption]?.installments_value?.[installmentKey] ||
-      "";
-    const tna = financingData?.[financeOption]?.APR?.[tnaKey] || "";
+      car?.financings?.[financeOption]?.installments_value?.[
+        installmentKey
+      ] || "";
+    const tna = car?.financings?.[financeOption]?.APR?.[tnaKey] || "";
     setInstallmentValue(value);
     setTnaValue(tna);
   }
@@ -96,15 +97,15 @@ export default function Page() {
   useEffect(() => {
     getVehiculoById(vehiculo);
   }, [vehiculo]);
-
-  useEffect(() => {
+  console.log(car)
+  /* useEffect(() => {
     const fetchFinancing = async () => {
       const data = await getFinancing();
       console.log(data);
       setFinancingData(data);
     };
     fetchFinancing();
-  }, []);
+  }, []); */
   const formatCurrency = (value) => {
     return new Intl.NumberFormat("es-AR", {
       style: "currency",
@@ -145,20 +146,20 @@ export default function Page() {
                       input={<OutlinedInput label="ANTICIPO" />}
                     >
                       <MenuItem value={"first_financing"}>
-                        {financingData?.first_financing?.down_payment ||
+                        {car?.financings?.first_financing?.down_payment ||
                           "Cargando..."}
                       </MenuItem>
                       <MenuItem value={"second_financing"}>
-                        {financingData?.second_financing?.down_payment ||
-                          "Cargando..."}
+                        {car?.financings?.second_financing
+                          ?.down_payment || "Cargando..."}
                       </MenuItem>
                       <MenuItem value={"uva_first_financing"}>
-                        {financingData?.uva_first_financing?.down_payment ||
-                          "Cargando..."}
+                        {car?.financings?.uva_first_financing
+                          ?.down_payment || "Cargando..."}
                       </MenuItem>
                       <MenuItem value={"uva_second_financing"}>
-                        {financingData?.uva_second_financing?.down_payment ||
-                          "Cargando..."}
+                        {car?.financings?.uva_second_financing
+                          ?.down_payment || "Cargando..."}
                       </MenuItem>
                     </Select>
                   </StyledFormControl>
@@ -169,13 +170,17 @@ export default function Page() {
                         <p>
                           $
                           {financeOption === "first_financing"
-                            ? financingData?.first_financing?.down_payment
+                            ? car?.financings?.first_financing
+                                ?.down_payment
                             : financeOption === "second_financing"
-                            ? financingData?.second_financing?.down_payment
+                            ? car?.financings?.second_financing
+                                ?.down_payment
                             : financeOption === "uva_first_financing"
-                            ? financingData?.uva_first_financing?.down_payment
+                            ? car?.financings?.uva_first_financing
+                                ?.down_payment
                             : financeOption === "uva_second_financing"
-                            ? financingData?.uva_second_financing?.down_payment
+                            ? car?.financings?.uva_second_financing
+                                ?.down_payment
                             : ""}
                         </p>
                       </li>
@@ -184,14 +189,16 @@ export default function Page() {
                         <p>
                           $
                           {financeOption === "first_financing"
-                            ? financingData?.first_financing?.financing_amount
+                            ? car?.financings?.first_financing
+                                ?.financing_amount
                             : financeOption === "second_financing"
-                            ? financingData?.second_financing?.financing_amount
+                            ? car?.financings?.second_financing
+                                ?.financing_amount
                             : financeOption === "uva_first_financing"
-                            ? financingData?.uva_first_financing
+                            ? car?.financings?.uva_first_financing
                                 ?.financing_amount
                             : financeOption === "uva_second_financing"
-                            ? financingData?.uva_second_financing
+                            ? car?.financings?.uva_second_financing
                                 ?.financing_amount
                             : ""}
                         </p>
@@ -245,7 +252,7 @@ export default function Page() {
             </Slide>
           </Modal>
           <div className={styles.vehicle_detail}>
-            <img src={car.img} alt={car.title} className={styles.photo}/>
+            <img src={car.img} alt={car.title} className={styles.photo} />
             <div className={styles.info_container}>
               <h2 className={styles.title}>{car.title.toUpperCase()}</h2>
               <div className={styles.texts_container}>

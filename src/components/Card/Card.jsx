@@ -1,15 +1,10 @@
 import React from "react";
 import Button from "../Button/Button";
-import { useAppContext } from "../../context/AppContext.jsx";
-import { useEffect } from "react";
 import styles from "./Card.module.css";
 import { useRouter } from "next/navigation";
-export default function Card() {
+export default function Card({catalogue}) {
   const router = useRouter();
-  const { getPromo, catalogue } = useAppContext();
-  useEffect(() => {
-    getPromo();
-  }, []);
+  
   const handleSeeDetail = (vehiculoId) => {
     router.push(`/vehiculos/${vehiculoId}`);
   };

@@ -128,10 +128,12 @@
     height: 50%;
     width: auto;
     max-width: 600px;
+    max-height: 600px;
   }
   .vehicle_detail {
     flex-direction: row;
     gap: 4rem;
+    padding-top: 10vh;
   }
   .info_container {
     height: 100%;
