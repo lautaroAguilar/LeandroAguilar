@@ -127,7 +127,7 @@ export default function Footer() {
           </div>
         </div>
         <div className={styles.copy}>
-          <p>Lautaro Aguilar © 2023</p>
+          <p>Lautaro Aguilar © 2024</p>
         </div>
       </div>
     </>
