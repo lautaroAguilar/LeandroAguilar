@@ -8,7 +8,7 @@
 }
 .background {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   max-width: 100%;
   object-fit: cover;
   object-position: center;
@@ -25,6 +25,12 @@
 .miniAbout h2 {
   font-size: 36px;
   text-align: center;
+  padding-bottom: 2rem;
+}
+.container_texts {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 .containerParagraph {
   width: 100%;
@@ -67,6 +73,7 @@
   .container_texts {
     width: 100%;
     display: flex;
+    flex-direction: row;
   }
   .containerParagraph p {
     width: 45vw;
