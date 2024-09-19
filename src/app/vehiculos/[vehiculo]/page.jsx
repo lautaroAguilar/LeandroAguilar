@@ -61,7 +61,7 @@ export default function Page() {
     36: "APR_twenty_installments",
     48: "APR_thirty_installments",
     60: "APR_forty_installments",
-  };w
+  };
   const handleOpen = () => {
     setOpen(true);
   };
@@ -149,7 +149,7 @@ export default function Page() {
                         {car?.financings?.first_financing?.down_payment ||
                           "Cargando..."}
                       </MenuItem>
-                      <MenuItem value={"second_financing"}>
+                      {/* <MenuItem value={"second_financing"}>
                         {car?.financings?.second_financing
                           ?.down_payment || "Cargando..."}
                       </MenuItem>
@@ -160,7 +160,7 @@ export default function Page() {
                       <MenuItem value={"uva_second_financing"}>
                         {car?.financings?.uva_second_financing
                           ?.down_payment || "Cargando..."}
-                      </MenuItem>
+                      </MenuItem> */} 
                     </Select>
                   </StyledFormControl>
                   <div>

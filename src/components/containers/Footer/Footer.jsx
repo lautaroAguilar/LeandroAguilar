@@ -18,7 +18,7 @@ export default function Footer() {
             <ul>
               <li>
                 <Link
-                  href="#about"
+                  href="/quienes-somos"
                   className={`${fontTitle.className} ${styles.footer_links}`}
                 >
                   ¿POR QUÉ ELEGIRNOS?
@@ -26,7 +26,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#promo"
+                  href="/vehiculos"
                   className={`${fontTitle.className} ${styles.footer_links}`}
                 >
                   PROMOCIONES
@@ -77,7 +77,7 @@ export default function Footer() {
             <ul>
               <li>
                 <Link
-                  href="#about"
+                  href="/vehiculos/6"
                   className={`${fontTitle.className} ${styles.footer_links}`}
                 >
                   TORO
@@ -85,7 +85,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#promo"
+                  href="/vehiculos/5"
                   className={`${fontTitle.className} ${styles.footer_links}`}
                 >
                   STRADA
@@ -93,7 +93,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#review"
+                  href="/vehiculos/1"
                   className={`${fontTitle.className} ${styles.footer_links}`}
                 >
                   CRONOS
@@ -101,7 +101,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#review"
+                  href="/vehiculos/0"
                   className={`${fontTitle.className} ${styles.footer_links}`}
                 >
                   FASTBACK
@@ -109,10 +109,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#review"
+                  href="/vehiculos/4"
                   className={`${fontTitle.className} ${styles.footer_links}`}
                 >
                   PULSE
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/vehiculos/3"
+                  className={`${fontTitle.className} ${styles.footer_links}`}
+                >
+                  MOBI
                 </Link>
               </li>
             </ul>

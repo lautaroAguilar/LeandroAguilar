@@ -21,7 +21,6 @@ export default function quienesSomos() {
             </p>
           </div>
         </div>
-        <div className={styles.illustration}>
           <Image
             src={illustration}
             width={2800}
@@ -29,7 +28,7 @@ export default function quienesSomos() {
             alt="Ilustración de un vendedor"
             className={styles.image}
           />
-        </div>
+        
       </div>
     </>
   );
